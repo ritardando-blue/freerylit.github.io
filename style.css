@@ -101,7 +101,7 @@ header {
 }
 /* ホバー時に画像を暗くする */
 .sidebar-left .youtube-embed a:hover img {
-  filter: brightness(0.8); /* 画像を暗くする */
+  filter: brightness(1.2); /* 画像を暗くする */
 }
 /* リンクのスタイルをリセット */
 .sidebar-left .youtube-embed a {
