@@ -8,6 +8,12 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+/* ①フォント読み込み（ファイルの最初の方でOK） */
+@font-face {
+  font-family: 'CorporateLogoM';
+  src: url('Corporate-Logo-Medium-ver3.otf') format('opentype');
+  font-display: swap;
+}
  /* ヘッダー4800x300 */
 header { 
   width: 100%;
@@ -42,7 +48,7 @@ header {
 .sidebar-left {
   width: 220px;
   background: #f2c474;
-  background-image: url('pattern.png');
+  background-image: url('pattern.webp');
   background-repeat: repeat;
   background-size: 250px 250px;
   padding: 20px;
