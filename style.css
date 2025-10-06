@@ -86,8 +86,8 @@ header {
   background: white;
   padding: 10px;
   border-radius: 5px;
-  width: 200px; /* 画像の幅 */
-  height: 113px; /* 16:9のアスペクト比に合わせた高さ */
+  width: 186px; /* 画像の幅 */
+  height: 105px; /* 16:9のアスペクト比に合わせた高さ */
   overflow: hidden; /* はみ出しを防ぐ */
   text-align: center; /* 中の画像を中央 */
 }
