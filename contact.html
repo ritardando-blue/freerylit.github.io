@@ -16,11 +16,9 @@
 <body>
   <!-- ヘッダーを読み込む -->
   <div id="header-placeholder"></div>
-
   <div class="container">
   <!-- 左カラムを読み込む -->
   <div id="sidebar-left-placeholder"></div>
-
     <!-- 中央カラム -->
     <main class="content">
       <h2>Contact</h2>
@@ -29,46 +27,30 @@
     🔽ritard_lux<br>
     <a href="https://twitter.com/ritard_lux" target="_blank">Twitter</a>
   </p>
-
     </main>
-
     <!-- 右カラムを読み込む -->
     <div id="sidebar-right-placeholder"></div>
   </div>
-
   <!-- フッターを読み込む -->
   <div id="footer-placeholder"></div>
-
   <!-- 共通パーツ読み込み用JavaScript -->
   <script>
-    function loadPart(file, placeholderId) {
-      fetch(file)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.text();
-        })
-        .then(data => {
-          const placeholder = document.getElementById(placeholderId);
-          if (placeholder) {
-            placeholder.innerHTML = data;
-          } else {
-            console.error(`Placeholder ${placeholderId} not found`);
-          }
-        })
-        .catch(error => console.error(`Error loading ${file}:`, error));
-    }
-
     document.addEventListener('DOMContentLoaded', function() {
-      loadPart('header.html', 'header-placeholder');
-      loadPart('sidebar-right.html', 'sidebar-right-placeholder');
-      loadPart('footer.html', 'footer-placeholder');
+      // HTMLファイルを読み込む関数
+      function loadHTML(elementId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(elementId).innerHTML = data;
+          })
+          .catch(error => console.error(`Error loading ${filePath}:`, error));
+      }
+      // 各パーツを読み込む
+      loadHTML('header-placeholder', 'header.html');
+      loadHTML('sidebar-left-placeholder', 'sidebar-left.html');
+      loadHTML('sidebar-right-placeholder', 'sidebar-right.html');
+      loadHTML('footer-placeholder', 'footer.html');
     });
   </script>
 </body>
 </html>
-
-
-
-
