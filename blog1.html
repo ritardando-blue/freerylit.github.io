@@ -2,27 +2,23 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>りたるだんどな日々 - はじめまして！</title>
+  <title>りたるだんどな日々 - [ページタイトル]</title>
   <meta name="description" content="音楽大好きで色々やってます。フリーBGM作ってます。ブログもやってます。">
   <meta name="keywords" content="BGM, フリーBGM, 作曲, 音楽, ブログ, パーカッション, 無料, 音楽無料, りたるだんどな日々">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="fabikonn.png" type="image/png">
-<script>
-  if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-    window.location.href = "mobile.html";
-  }
-</script>
-  
+  <script>
+    if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+      window.location.href = "mobile.html";
+    }
+  </script>
 </head>
 <body>
-  
   <!-- ヘッダーを読み込む -->
   <div id="header-placeholder"></div>
-
   <div class="container">
-  <!-- 左カラムを読み込む -->
-  <div id="sidebar-left-placeholder"></div>
-
+    <!-- 左カラムを読み込む -->
+    <div id="sidebar-left-placeholder"></div>
     <!-- 中央カラム -->
     <main class="content">
 <div class="blog-post">
@@ -34,52 +30,30 @@
   本サイトでは主に、フリーBGMの公開、ブログの更新、YouTubeの動画更新にかかるお知らせをいたします。</p>
   <p>よろしくおねがいします！</p>
 </div>
-
-
-      
   </main>
-
     <!-- 右カラムを読み込む -->
     <div id="sidebar-right-placeholder"></div>
   </div>
-
   <!-- フッターを読み込む -->
   <div id="footer-placeholder"></div>
-
   <!-- 共通パーツ読み込み用JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // ヘッダーを読み込む
-      fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('header-placeholder').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading header:', error));
-
-      // 右カラムを読み込む
-      fetch('sidebar-right.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('sidebar-right-placeholder').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading sidebar:', error));
-
-      // フッターを読み込む
-      fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('footer-placeholder').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading footer:', error));
+      // HTMLファイルを読み込む関数
+      function loadHTML(elementId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(elementId).innerHTML = data;
+          })
+          .catch(error => console.error(`Error loading ${filePath}:`, error));
+      }
+      // 各パーツを読み込む
+      loadHTML('header-placeholder', 'header.html');
+      loadHTML('sidebar-left-placeholder', 'sidebar-left.html');
+      loadHTML('sidebar-right-placeholder', 'sidebar-right.html');
+      loadHTML('footer-placeholder', 'footer.html');
     });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
