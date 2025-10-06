@@ -33,47 +33,34 @@
 
 
     </main>
-
     <!-- 右カラムを読み込む -->
     <div id="sidebar-right-placeholder"></div>
   </div>
-
   <!-- フッターを読み込む -->
   <div id="footer-placeholder"></div>
 
   <!-- 共通パーツ読み込み用JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // ヘッダーを読み込む
-      fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('header-placeholder').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading header:', error));
+      // HTMLファイルを読み込む関数
+      function loadHTML(elementId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(elementId).innerHTML = data;
+          })
+          .catch(error => console.error(`Error loading ${filePath}:`, error));
+      }
 
-      // 右カラムを読み込む
-      fetch('sidebar-right.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('sidebar-right-placeholder').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading sidebar:', error));
-
-      // フッターを読み込む
-      fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('footer-placeholder').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading footer:', error));
+      // 各パーツを読み込む
+      loadHTML('header-placeholder', 'header.html');
+      loadHTML('sidebar-left-placeholder', 'sidebar-left.html');
+      loadHTML('sidebar-right-placeholder', 'sidebar-right.html');
+      loadHTML('footer-placeholder', 'footer.html');
     });
   </script>
 </body>
 </html>
-
-
-
 
 
 
