@@ -68,6 +68,9 @@ header {
   border-radius: 0px;
   transition: background-color 0.3s, color 0.3s;
   font-size: 15px;
+/* 左サイドバー内のすべてのリンクに適用 */
+.sidebar-left a {
+  font-family: 'CorporateLogoM', sans-serif;
 }
 .sidebar-left a:hover {
   background-color: #ffe08a;
