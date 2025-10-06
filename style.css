@@ -91,10 +91,15 @@ header {
 }
 /* 画像を挿入 */
 .sidebar-left .youtube-embed img {
+  position: absolute;
   display: block;
-  max-width: 100%; /* 幅を親要素の100%に制限 */
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%); /* 中央に移動 */
+  max-width: 90%; /* 画像が外枠からはみ出ないように */
+  max-height: 90%; /* 画像が外枠からはみ出ないように */
   width: auto; /* 元のアスペクト比を維持 */
+  height: auto;
   margin: 0 auto; /* 中央寄せ */
   object-fit: contain; /* 画像が歪まないように表示 */
   transition: filter 0.3s ease; /* ホバー時のアニメーション */
