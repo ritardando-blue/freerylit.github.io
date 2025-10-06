@@ -79,21 +79,22 @@ header {
   background-color: #ffe08a;
   color: #612d00;
 }
-/* 画像表示用のスタイル */
+/* YouTube風ボックス自体 */
 .sidebar-left .youtube-embed {
   display: inline-block; /* 横幅固定のボックスを中央に */
   margin-top: 20px;
-  text-align: center;
   background: white;
   padding: 10px;
-  border-radius: 0px;
+  border-radius: 5px;
   width: 200px; /* 画像の幅 */
   height: 113px; /* 16:9のアスペクト比に合わせた高さ */
   overflow: hidden; /* はみ出しを防ぐ */
+  text-align: center; /* 中の画像を中央 */
 }
 /* 画像を挿入 */
 .sidebar-left .youtube-embed img {
   display: block;
+  margin: 0 auto; /* ←ここでブロック画像を中央 */
   width: 100%; /* 幅を100%に */
   height: 100%; /* 高さを100%に */
   object-fit: cover; /* 画像が枠内にフィット */
@@ -102,11 +103,6 @@ header {
 /* ホバー時に画像を暗くする */
 .sidebar-left .youtube-embed a:hover img {
   filter: brightness(1.2); /* 画像を暗くする */
-}
-/* リンクのスタイルをリセット */
-.sidebar-left .youtube-embed a {
-  display: block;
-  text-decoration: none; /* 下線を消す */
 }
 /* 中央カラム */
 .content {
