@@ -19,26 +19,20 @@
   <div class="container">
     <!-- 左カラムを読み込む -->
     <div id="sidebar-left-placeholder"></div>
-
     <!-- 中央カラム -->
     <main class="content">  <!-- ここに.class="content"を追加 -->
       <h2>Blog</h2>
-
       <!-- ブログ1 -->
       <div class="blog-post">
         <h3><a href="blog1.html" class="blog-link">★はじめまして！</a></h3>
         <div class="blog-date">更新日時: 2025/10/03 23:38</div>
       </div>
-
-
-
     </main>
     <!-- 右カラムを読み込む -->
     <div id="sidebar-right-placeholder"></div>
   </div>
   <!-- フッターを読み込む -->
   <div id="footer-placeholder"></div>
-
   <!-- 共通パーツ読み込み用JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -51,7 +45,6 @@
           })
           .catch(error => console.error(`Error loading ${filePath}:`, error));
       }
-
       // 各パーツを読み込む
       loadHTML('header-placeholder', 'header.html');
       loadHTML('sidebar-left-placeholder', 'sidebar-left.html');
@@ -61,7 +54,3 @@
   </script>
 </body>
 </html>
-
-
-
-
