@@ -81,15 +81,11 @@ header {
 }
 /* YouTube風ボックス自体 */
 .sidebar-left .youtube-embed {
-  display: inline-block; /* 横幅固定のボックスを中央に */
   margin-top: 20px;
+  text-align: center;
   background: white;
   padding: 10px;
-  border-radius: 5px;
-  width: 186px; /* 画像の幅 */
-  height: 105px; /* 16:9のアスペクト比に合わせた高さ */
-  overflow: hidden; /* はみ出しを防ぐ */
-  margin: auto;
+  border-radius: 0px;
 }
 /* 画像を挿入 */
 .sidebar-left .youtube-embed img {
