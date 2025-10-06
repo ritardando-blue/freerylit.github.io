@@ -86,7 +86,7 @@ header {
   padding: 10px;
   position: relative;
   width: 100%;
-  padding-top: 133.33%; /* 3:4のアスペクト比を実現 */
+  padding-top: 75%; /* 4:3のアスペクト比を実現 */
   overflow: hidden;
 }
 /* 画像を挿入 */
