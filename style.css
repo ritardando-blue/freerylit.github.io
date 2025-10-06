@@ -96,8 +96,8 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); /* 中央に移動 */
-  max-width: 90%; /* 画像が外枠からはみ出ないように */
-  max-height: 90%; /* 画像が外枠からはみ出ないように */
+  max-width: 88%; /* 画像が外枠からはみ出ないように */
+  max-height: 88%; /* 画像が外枠からはみ出ないように */
   width: auto; /* 元のアスペクト比を維持 */
   height: auto;
   margin: 0 auto; /* 中央寄せ */
