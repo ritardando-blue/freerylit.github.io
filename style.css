@@ -89,7 +89,7 @@ header {
 /* 画像を挿入 */
 .sidebar-left .youtube-embed img {
   display: block;
-  max-width: 100%;
+  max-width: 110%;
   display: block;
   margin: 0 auto;
   transition: filter 0.3s ease; /* ホバー時のアニメーション */
