@@ -27,7 +27,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  align-items: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* ネイビーの影 */
   flex-shrink: 0; /* 追加：ヘッダーが縮まないように */
 }
@@ -150,7 +149,6 @@ a.button {
   background: #d35400;
   color: white;
   text-decoration: none;
-  border-radius: 0px;
 }
 a.button:hover {
   background: #ff7f50;
@@ -175,7 +173,6 @@ ul.blog-list li a:hover {
   font-size: 0.9em;
   color: #1a0080;
   margin-bottom: 10px;
-  font-family: Arial, sans-serif;
 }
 /* 更新履歴 */
 .update-log h4 {
@@ -194,6 +191,3 @@ ul.blog-list li a:hover {
   color: #333;
   margin-bottom: 4px;
 }
-
-
-
