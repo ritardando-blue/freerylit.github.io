@@ -73,7 +73,6 @@ header {
   border-radius: 0px;
   transition: background-color 0.3s, color 0.3s;
   font-size: 16px;
-  line-height: 1.1; /* ←行間を少し広げる */
 }
 .sidebar-left a:hover {
   background-color: #ffe08a;
