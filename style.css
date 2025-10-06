@@ -89,12 +89,12 @@ header {
   width: 186px; /* 画像の幅 */
   height: 105px; /* 16:9のアスペクト比に合わせた高さ */
   overflow: hidden; /* はみ出しを防ぐ */
-  text-align: center; /* 中の画像を中央 */
+  margin: auto;
 }
 /* 画像を挿入 */
 .sidebar-left .youtube-embed img {
   display: block;
-  margin: 0 auto; /* ←ここでブロック画像を中央 */
+  margin: auto;
   width: 100%; /* 幅を100%に */
   height: 100%; /* 高さを100%に */
   object-fit: cover; /* 画像が枠内にフィット */
