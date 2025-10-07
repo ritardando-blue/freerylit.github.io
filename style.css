@@ -126,6 +126,23 @@ header {
   padding: 20px;
   box-sizing: border-box;
 }
+/* iFrameのラッパー */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9のアスペクト比 */
+  margin: 20px 0;
+  overflow: hidden;
+}
+/* iFrame自体 */
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 /* 右カラム */
 .sidebar-right {
   width: 220px;
