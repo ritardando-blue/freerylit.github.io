@@ -252,3 +252,6 @@ ul.blog-list li a:hover {
   color: #333;
   margin-bottom: 4px;
 }
+.blog-post {
+  margin-bottom: 40px; /* 下の余白を広げる（お好みで20〜60pxくらい） */
+}
