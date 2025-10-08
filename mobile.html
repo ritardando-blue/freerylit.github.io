@@ -1,80 +1,35 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>りたるだんどな日々 - モバイル版</title>
-  <meta name="description" content="音楽大好きで色々やってます。フリーBGM作ってます。ブログもやってます。">
-  <meta name="keywords" content="BGM, フリーBGM, 作曲, 音楽, ブログ, パーカッション, 無料, 音楽無料, りたるだんどな日々">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="background/pageimages/fabikonn.png" type="image/png">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fff8f0;
-      color: #333;
-    }
-    header {
-      height: 100px;
-      background: url('background/pageimages/header.webp') no-repeat center center;
-      background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-    }
-
-/* モバイル右カラム */
-.mobile-sidebar {
-  position: fixed;
-  top: 100px; /* ヘッダーの高さ分ずらす */
-  right: 0;
-  width: 200px;
-  height: calc(100% - 180px); /* 下にフッター分余白残す */
-  background-size: cover;
-  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-  z-index: 900; /* ヘッダーより下だけどコンテンツより上 */
-  padding: 15px;
-  box-sizing: border-box;
-  overflow-y: auto; /* 長くなったらスクロール */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>りたるだんどな日々 - モバイル版</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="background/pageimages/fabikonn.png" type="image/png">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff8f0;
+  color: #333;
 }
-
-/* モバイルフッター */
-footer {
+header {
+  height: 100px;
+  background: url('background/pageimages/header.webp') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
-  height: 80px;
-  background: url('background/footer.html') no-repeat center center;
-  background-size: cover;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
   z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-weight: bold;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
-footer a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-}
-footer a:hover {
-  text-decoration: underline;
-}
-
-    
 .hamburger {
   position: fixed;
-  top: 105px; /* ヘッダー高さ100px + 余白15px */
+  top: 105px;
   left: 10px;
   font-size: 28px;
   background: none;
@@ -83,63 +38,27 @@ footer a:hover {
   color: #d35400;
   z-index: 1998;
 }
-
-    .menu {
-      display: none;
-      position: fixed;
-      top: 100px;
-      left: 0;
-      width: 100%;
-      background: #f2c474;
-      background-image: url('background/pageimages/pattern.png');
-      background-repeat: repeat;
-      background-size: 250px 250px;
-      z-index: 1999;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-    .menu a {
-      display: block;
-      margin: 8px 0;
-      padding: 8px 12px;
-      color: #612d00;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .content {
-      padding: 20px;
-      margin-top: 120px;
-    }
-    .sidebar-right, footer {
-      padding: 20px;
-      box-sizing: border-box;
-    }
-    .sidebar-right {
-      background: #fff;
-      text-align: center;
-    }
-    .sidebar-right img {
-      width: 100px;
-      border-radius: 50%;
-      display: block;
-      margin: 0 auto 10px;
-    }
-    footer {
-      background-color: #d35400;
-      color: white;
-      text-align: center;
-    }
-    footer a {
-      color: white;
-      text-decoration: none;
-      margin: 0 5px;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-
+.menu {
+  display: none;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  background: #f2c474 url('background/pageimages/pattern.png') repeat;
+  z-index: 1999;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.menu a {
+  display: block;
+  margin: 8px 0;
+  padding: 8px 12px;
+  color: #612d00;
+  text-decoration: none;
+  font-weight: bold;
+}
 .close-btn {
-  display: none; /* 最初は隠す */
+  display: none;
   position: fixed;
   bottom: 20px;
   left: 20px;
@@ -148,135 +67,113 @@ footer a:hover {
   border: none;
   cursor: pointer;
   color: #612d00;
-  z-index: 2000; /* メニューより上 */
+  z-index: 2000;
 }
-
-  /* 既存のCSSの下に追加 */
-  #mobileContent {
-    margin-top: 100px;   /* ヘッダーの高さ */
-    margin-right: 200px; /* サイドバーの幅 */
-    margin-bottom: 80px; /* フッターの高さ */
-    padding: 20px;
-    box-sizing: border-box;
-  }
-    
+#mobileContent {
+  margin-top: 120px;
+  margin-right: 210px; /* サイドバー幅 + 少し余白 */
+  margin-bottom: 90px; /* フッター高さ + 少し余白 */
+  padding: 20px;
+  box-sizing: border-box;
+}
+.mobile-sidebar {
+  position: fixed;
+  top: 100px;
+  right: 0;
+  width: 200px;
+  height: calc(100% - 180px);
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  padding: 15px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  z-index: 900;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #d35400;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 5px;
+}
+footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
 
+<header>
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+</header>
+
+<div class="menu" id="menu">
+  <a href="mobile.html?page=index">HOME</a>
+  <a href="mobile.html?page=bgm">フリーBGM</a>
+  <a href="mobile.html?page=blog">Blog</a>
+  <a href="mobile.html?page=profile">Profile</a>
+  <a href="mobile.html?page=contact">Contact</a>
+  <a href="mobile.html?page=terms">利用規約</a>
+</div>
+
+<button class="close-btn" onclick="closeMenu()">✖</button>
+
+<main id="mobileContent">
+  <h2>テスト</h2>
+</main>
+
+<div id="sidebar-right-placeholder" class="mobile-sidebar"></div>
+<div id="footer-placeholder"></div>
+
 <script>
+// ハンバーガーメニュー
 function toggleMenu() {
   const menu = document.getElementById('menu');
   const closeBtn = document.querySelector('.close-btn');
-
-  if (menu.style.display === 'block') {
-    menu.style.display = 'none';
-    closeBtn.style.display = 'none';
-  } else {
-    menu.style.display = 'block';
-    closeBtn.style.display = 'block';
-  }
+  const show = menu.style.display !== 'block';
+  menu.style.display = show ? 'block' : 'none';
+  closeBtn.style.display = show ? 'block' : 'none';
 }
-
 function closeMenu() {
-  const menu = document.getElementById('menu');
-  const closeBtn = document.querySelector('.close-btn');
-  menu.style.display = 'none';
-  closeBtn.style.display = 'none';
+  document.getElementById('menu').style.display = 'none';
+  document.querySelector('.close-btn').style.display = 'none';
 }
+
+// HTMLパーツ読み込み
+function loadHTML(id, url) {
+  fetch(url)
+    .then(res => res.ok ? res.text() : Promise.reject(res.status))
+    .then(html => document.getElementById(id).innerHTML = html)
+    .catch(err => console.error('読み込み失敗:', url, err));
+}
+
+// ページ本文読み込み
+const urlParams = new URLSearchParams(window.location.search);
+const pageName = urlParams.get('page') || 'index';
+fetch(`${pageName}.html`)
+  .then(res => res.ok ? res.text() : Promise.reject(res.status))
+  .then(html => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const content = doc.querySelector('.content') || doc.querySelector('main') || doc.querySelector('body');
+    if(content) document.getElementById('mobileContent').innerHTML = content.innerHTML;
+  })
+  .catch(err => console.error('本文読み込み失敗:', err));
+
+// 各パーツ読み込み
+loadHTML('sidebar-right-placeholder', 'background/sidebar-right.html');
+loadHTML('footer-placeholder', 'background/footer.html');
 </script>
-
-  
-  <header>
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
-  </header>
-
-  <!-- ハンバーガーメニュー -->
-  <div class="menu" id="menu">
-    <a href="mobile.html?page=index">HOME</a>
-    <a href="mobile.html?page=bgm">フリーBGM</a>
-    <a href="mobile.html?page=blog">Blog</a>
-    <a href="mobile.html?page=profile">Profile</a>
-    <a href="mobile.html?page=contact">Contact</a>
-    <a href="mobile.html?page=terms">利用規約</a>
-  </div>
-
-  <!-- 閉じるボタン（メニューの外・左下固定） -->
-<button class="close-btn" onclick="closeMenu()">✖</button>
-
-
-  <!-- 本文 -->
-  <main class="content" id="mobileContent">
-    <!-- 直接コンテンツを表示（テスト用） -->
-    <h2>テスト</h2>
-  </main>
-
-  <!-- 右カラム -->
-  <div id="sidebar-right-placeholder"></div>
-
-  <!-- フッター -->
-  <div id="footer-placeholder"></div>
-
-  <!-- JavaScript -->
-<script>
-  // ハンバーガーメニューのトグル機能
-  function toggleMenu() {
-    const menu = document.getElementById('menu');
-    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-  }
-
-  // URLからクエリパラメータを取得
-  const urlParams = new URLSearchParams(window.location.search);
-  const pageName = urlParams.get('page') || 'index'; // クエリパラメータからページ名を取得、デフォルトはindex
-  console.log('ページ名:', pageName); // デバッグ用
-
-  // デスクトップ版のコンテンツを読み込む
-  fetch(`${pageName}.html`)
-    .then(response => {
-      if (!response.ok) {
-        console.error(`ファイルが見つかりません: ${pageName}.html`);
-        document.getElementById('mobileContent').innerHTML = `
-          <h2>Welcome!</h2>
-          <p>ようこそ、フリーBGM配布サイト《りたるだんどな日々》へ。</p>
-          <p>フリーBGMの配信やブログ更新情報、YouTubeの最新動画情報などをお届けします。</p>
-        `;
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      console.log('ファイルを読み込みました:', `${pageName}.html`);
-      return response.text();
-    })
-    .then(html => {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, 'text/html');
-      const content = doc.querySelector('.content') || doc.querySelector('main') || doc.querySelector('body');
-      if (content) {
-        document.getElementById('mobileContent').innerHTML = content.innerHTML;
-      } else {
-        console.error('コンテンツが見つかりません');
-      }
-    })
-    .catch(error => {
-      console.error('コンテンツの読み込みに失敗:', error);
-    });
-      // 各パーツを読み込む
-      loadHTML('header-placeholder', 'background/header.html');
-      loadHTML('sidebar-left-placeholder', 'background/sidebar-left.html');
-      loadHTML('sidebar-right-placeholder', 'background/sidebar-right.html');
-      loadHTML('footer-placeholder', 'background/footer.html');
-    });
-</script>
-
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
