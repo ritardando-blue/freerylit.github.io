@@ -78,6 +78,11 @@ header {
   background-color: #ffe08a;
   color: #612d00;
 }
+.sidebar-left a.no-hover:hover {
+  background-color: transparent;
+  color: inherit;
+  cursor: default;
+}
 /* 白背景 */
 .sidebar-left .youtube-embed {
   display: block;
