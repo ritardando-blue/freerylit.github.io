@@ -95,7 +95,7 @@ header {
   width: 180px;
   padding-top: 50%;
   box-sizing: border-box; /* パディングを含めて幅を計算 */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 /* リンク全体をホバー対象にする */
 .sidebar-left .youtube-embed a {
@@ -125,7 +125,7 @@ header {
 }
 /* ホバー時に画像を暗くする */
 .sidebar-left .youtube-embed a:hover img {
-  filter: brightness(0.9); /* 画像を暗くする */
+  filter: brightness(0.8); /* 画像を暗くする */
   background-color: transparent;
   color: inherit;
   cursor: default;
