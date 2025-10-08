@@ -12,6 +12,9 @@
       window.location.href = "mobile.html";
     }
   </script>
+  <!-- メインCSS（遅延読み込み＋高速化） -->
+  <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
 </head>
 <body>
   <!-- ヘッダーを読み込む -->
