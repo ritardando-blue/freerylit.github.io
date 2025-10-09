@@ -125,7 +125,7 @@ header {
 }
 /* ホバー時に画像を暗くする */
 .sidebar-left .youtube-embed a:hover img {
-  filter: brightness(0.8); /* 画像を暗くする */
+  filter: brightness(0.88); /* 画像を暗くする */
   background-color: transparent;
   color: inherit;
   cursor: default;
@@ -141,7 +141,7 @@ header {
 .video-wrapper {
   position: relative;
   width: 100%;
-  max-width: 300px; /* 最大幅を制限 */
+  max-width: 450px; /* 最大幅を制限 */
   padding-top: 177.78%; /* 9:16のアスペクト比 */
   overflow: hidden;
 }
