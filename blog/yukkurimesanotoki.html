@@ -1,1 +1,74 @@
 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ゆっくりめさというチャンネルをやっていたときのこと</title>
+  <meta name="description" content="音楽大好きで色々やってます。フリーBGM作ってます。ブログもやってます。">
+  <meta name="keywords" content="BGM, フリーBGM, 作曲, 音楽, ブログ, パーカッション, 無料, 音楽無料, りたるだんどな日々">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../background/pageimages/fabikonn.png" type="image/png">
+  <script>
+    if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+      window.location.href = "../mobile.html";
+    }
+  </script>
+</head>
+<body>
+  <!-- ヘッダーを読み込む -->
+  <div id="header-placeholder"></div>
+  <div class="container">
+    <!-- 左カラムを読み込む -->
+    <div id="sidebar-left-placeholder"></div>
+    <!-- 中央カラム -->
+    <main class="content">
+<div class="blog-post">
+  <h2>ゆっくりめさというチャンネルをやっていたときのこと</h2>
+  <div class="blog-date">更新日時: 2025/10/07 17:45</div>
+  <p>僕はよくCubasePro8.5で曲を作っています。古いアプリケーションなんだけどやっぱ現場で使われるアプリだから機能的にはすごいし、全然手に余る状態なんです。</p>
+  <p>今後このアプリケーションを手放すことは、多分無いでしょうな！</p>
+  <p>といいつつ、ガレージバンドを触ってみました。</p>
+  <p>他のDAWも使ってみたくて！笑</p>
+  <p> </p>
+  <p>⏬️とりあえずどういう操作性なのか確かめるために、宝島をコピーしてみました。</p>
+  <iframe src="https://www.youtube.com/embed/DbLvq997L-M?si=z3_BBjDooisNZanD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <p>どうですかね？個人的には満足です。</p>
+    <p>指で直感的にゲイン調整できますし、クオンタイズも簡単でした。しかもこいつ、音割れしてないんですよね。</p>
+    <p>僕がDAW触ってると大体いつのまにか音割れしてて困っちゃうんですけど、こいつは特にマキシマイザーなどもかけずに音割れもしないので使いやすいなあと思いました。</p>
+    <p> </p>
+    <p>で、タイトルにもあるように、ブラス音源が結構好きな音色でした。</p>
+  <p>ブラスの音源はBrass SectionとHornだけなんですけど、こうなんていうか、抜け感が良かったです。<br>
+    <p>Cubaseのブラス音源って、結構アタックが強いというか、なんというか？</p>
+    <p>それに比べて、GarageBandのほうはスタイリッシュな音を出してくれたので、楽しく耳コピできました。</p>
+  <p>あ、ちなみに耳コピっていっても、音源を何も聞かずに自分のイメージだけで起こしたので、間違ってるところはご愛嬌ということで、、笑</p>
+  <p>GaregeBandも使っていこうかな？って思いました(にっこり</p>
+  <p> </p>
+  <p>みなさまも是非、素敵な作曲ライフを送ってみてください〜</p>
+</div>
+  </main>
+    <!-- 右カラムを読み込む -->
+    <div id="sidebar-right-placeholder"></div>
+  </div>
+  <!-- フッターを読み込む -->
+  <div id="footer-placeholder"></div>
+  <!-- 共通パーツ読み込み用JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // HTMLファイルを読み込む関数
+      function loadHTML(elementId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(elementId).innerHTML = data;
+          })
+          .catch(error => console.error(`Error loading ${filePath}:`, error));
+      }
+      // 各パーツを読み込む
+      loadHTML('header-placeholder', '../background/header.html');
+      loadHTML('sidebar-left-placeholder', '../background/sidebar-left.html');
+      loadHTML('sidebar-right-placeholder', '../background/sidebar-right.html');
+      loadHTML('footer-placeholder', '../background/footer.html');
+    });
+  </script>
+</body>
+</html>
