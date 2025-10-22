@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ディレクトリとアドレスって実は似てる？フォルダとの違いも解説</title>
+  <meta name="description" content="ディレクトリとアドレスの関係、フォルダとの違いについて、カジュアルに解説します。">
+  <meta name="keywords" content="ディレクトリ, フォルダ, アドレス, パス, IT用語, 解説, ブログ">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../background/pageimages/fabikonn.png" type="image/png">
+  <script>
+    if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+      window.location.href = "../mobile.html";
+    }
+  </script>
+  <style>
+    /* 記事内の強調スタイル */
+    .blog-post strong {
+      color: #d35400;
+      font-weight: bold;
+    }
+    /* コード表示用 */
+    .blog-post code {
+      background-color: #f8f8f8;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: monospace;
+      color: #c00;
+    }
+    /* 引用ブロック */
+    .blog-post blockquote {
+      background-color: #fff8f0;
+      border-left: 4px solid #d35400;
+      padding: 10px 15px;
+      margin: 15px 0;
+      font-style: italic;
+      color: #555;
+    }
+    /* 見出し調整 */
+    .blog-post h3 {
+      color: #e65100;
+      border-bottom: 1px solid #e65100;
+      padding-bottom: 5px;
+      margin-top: 25px;
+    }
+    /* 箇条書きスタイル */
+    .blog-post ul {
+      margin-left: 20px;
+    }
+    .blog-post li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- ヘッダーを読み込む -->
+  <div id="header-placeholder"></div>
+  <div class="container">
+    <!-- 左カラムを読み込む -->
+    <div id="sidebar-left-placeholder"></div>
+    <!-- 中央カラム -->
+    <main class="content">
+      <div class="blog-post">
+        <h2>ディレクトリとアドレスって実は似てる？フォルダとの違いも解説</h2>
+        <div class="blog-date">更新日時: 2025/10/22 18:30</div>
+
+        <p>こんにちは！HTMLやCSS、JavaScript、VBA、Pythonをちょこっと触ったことがある素人です。今日はいつも何気なく使っている<strong>「フォルダ」</strong>と<strong>「ディレクトリ」</strong>、<strong>「アドレス」</strong>について、カジュアルに語ってみようと思います。実は、<strong>ディレクトリとアドレスって結構似てる</strong>んじゃない？って思ったのがこの記事を書くきっかけです。</p>
+
+        <h3>フォルダとディレクトリの意味</h3>
+        <p><strong>「フォルダ」</strong>って聞くと、パソコンの中の「入れ物」を思い浮かべますよね？書類を整理するための、あの紙のフォルダみたいなやつ。一方で<strong>「ディレクトリ」</strong>って言葉、聞いたことあるけどなんとなく難しそう……って思ってませんか？</p>
+
+        <blockquote>
+          <p><strong>フォルダ</strong>：GUI（グラフィカルユーザーインターフェース）で使われる言葉。ファイルを入れる「入れ物」のこと。WindowsやMacでよく見かけます。</p>
+          <p><strong>ディレクトリ</strong>：CUI（キャラクターユーザーインターフェース）で使われる言葉。ファイルや他のディレクトリを整理するための「場所」のこと。LinuxやUNIXでよく使われます。</p>
+        </blockquote>
+
+        <p>実は、<strong>フォルダとディレクトリはほとんど同じもの</strong>を指しています。どちらもファイルを整理するための「入れ物」です。でも、なぜ呼び方が違うのか？それは、使われる環境が違うからなんです。</p>
+
+        <h3>フォルダの誕生と普及</h3>
+        <p>ここでちょっと歴史の話。「フォルダ」という概念は、実は<strong>Xerox PARC（パロアルト研究所）が発明</strong>したんです。1970年代、Xerox PARCで開発されたGUI（グラフィカルユーザーインターフェース）の中で、ファイルを整理するための「フォルダ」という概念が初めて登場しました。紙の書類を入れるフォルダに例えて、ユーザーが直感的に理解しやすいように設計されました。</p>
+
+        <p>でも、この「フォルダ」という概念を一般ユーザーに広めたのは、<strong>Apple（アップル）</strong>です。1984年に発売された<strong>Macintosh（マッキントッシュ）</strong>で、AppleはXerox PARCのGUIを参考にしつつ、一般ユーザー向けに「フォルダ」という概念を広めました。MacintoshのGUIは、フォルダやファイルを視覚的に操作できるようにし、パソコンを誰でも使いやすいものにしました。これが、「フォルダ」という言葉が一般ユーザーに広く知られるきっかけとなりました。</p>
+
+        <p>その後、MicrosoftもWindows 95でGUIを一般ユーザー向けに普及させ、「フォルダ」という言葉をさらに広めました。つまり、「フォルダ」という言葉はXerox PARCが発祥ですが、<strong>Appleが一般ユーザー向けに広めた</strong>と言えるでしょう。</p>
+
+        <h3>フォルダとディレクトリの共通点と違い</h3>
+        <p>フォルダとディレクトリの共通点は、どちらもファイルを整理するための「場所」や「入れ物」であることです。例えば、デスクトップ上の「ドキュメント」フォルダも、<code>/home/user/documents</code> ディレクトリも、同じものを指しています。</p>
+
+        <p>違いは、呼び方の違いです。フォルダは「視覚的」な表現、ディレクトリは「技術的」な表現です。フォルダは「見た目」で、ディレクトリは「中身」って感じです。例えば、Windowsでは<code>C:\Users\名前\Documents</code>を「ドキュメントフォルダ」と呼びますが、Linuxでは<code>/home/ユーザー名/Documents</code>ディレクトリと呼びます。中身は同じです。ただ、呼び方が違うだけなんですね。</p>
+
+        <h3>アドレスの意味</h3>
+        <p>次に<strong>「アドレス」</strong>。これは「住所」みたいなものです。ファイルやディレクトリがどこにあるかを示す文字列のことを言います。例えば、<code>C:\Users\名前\Documents\report.txt</code>や<code>/home/user/documents/report.txt</code>がアドレス（パス）です。</p>
+
+        <blockquote>
+          <p>アドレス（パス）は、ファイルやディレクトリの「場所」を示す文字列です。道案内みたいなものですね。例えば、友達の家に行くときに、「○○市△△町1-2-3」という住所を教えてもらうのと同じです。パソコンの中でも、ファイルやディレクトリの場所を示すのがアドレス（パス）です。</p>
+        </blockquote>
+
+        <h3>ディレクトリとアドレスの共通点</h3>
+        <p>ここで本題。ディレクトリとアドレスって実は似てるんです。ディレクトリは「場所」そのもの、アドレスは「その場所を示す文字列」です。つまり、ディレクトリは「家」、アドレスは「その家の住所」みたいなものです。</p>
+
+        <p>例えば、<code>/home/user/documents</code> はディレクトリです。その一方で、<code>/home/user/documents/report.txt</code> はアドレス（パス）です。ディレクトリは「場所」、アドレスは「その場所への道筋」を示しています。だから、ディレクトリとアドレスは切っても切れない関係なんですね。</p>
+
+        <h3>ディレクトリという言葉が生き残る理由</h3>
+        <p>ディレクトリという言葉が今でも使われるのは、コンピューターの「階層構造」を表すからです。ファイルシステムは木の枝みたいに階層になっていて、ディレクトリはその「枝」や「節」を表します。この考え方はアドレス（パス）でも共通しています。</p>
+
+        <p>ディレクトリは「階層構造」を表す核の概念です。アドレス（パス）も、その階層構造を文字列で表現したものです。例えば、<code>/home/user/documents</code> というディレクトリは、<code>/home/user/documents/report.txt</code> というアドレス（パス）の中に含まれています。だから、ディレクトリという言葉はなくならないんですね。</p>
+
+        <h3>実用上は問題ない</h3>
+        <p>でも、実際にパソコンを使う上では、フォルダって呼んでもディレクトリって呼んでも、全然問題ありません。どちらも同じものを指しています。大事なのは、「どこにファイルがあるか」を理解することです。フォルダという言葉の方が馴染みがあるなら、フォルダって呼べばいいんです。ディレクトリという言葉が好きなら、ディレクトリって呼べばいいんです。</p>
+
+        <h3>なぜフォルダって言うようになったの？</h3>
+        <p>なぜWindowsは「フォルダ」って言うようになったのか？それはGUIの普及が関係しています。紙のフォルダに例えると、ユーザーが直感的に理解しやすいからです。昔のWindows（Windows 95以前）では、「ディレクトリ」という言葉が使われていました。でも、GUIが普及すると、「フォルダ」という言葉が一般的になりました。紙のフォルダに例えると、誰でもイメージしやすいですよね。</p>
+
+        <p>その一方で、UNIXやLinuxは技術者向けに発展したので、「ディレクトリ」という技術用語が残ったんですね。UNIXやLinuxは、コマンドラインで操作することが多いので、技術用語がそのまま使われ続けているんです。</p>
+
+        <h3>機械に弱い人には難しい用語を使うべきじゃない</h3>
+        <p>ここからはちょっと意見です。技術用語って、初めて聞く人には難しいですよね。「パス」「ディレクトリ」「リポジトリ」「コミット」……これらの用語は、技術に詳しい人にとっては便利ですが、初心者にとってはハードルが高いです。</p>
+
+        <p>技術はみんなで共有するものです。難しい用語を使うよりも、わかりやすい言葉で説明することが大事だと思います。例えば、「パス」って言われてもピンと来ないかもしれませんが、「ファイルの住所」って言われたらわかりやすいですよね？</p>
+
+        <blockquote>
+          <p>技術用語を使うのは、技術者同士のコミュニケーションでは便利です。でも、初心者や機械に弱い人に説明する時は、わかりやすい言葉を使うように心がけましょう。技術をみんなで楽しむために、難しい用語に惑わされないようにしたいですね。</p>
+        </blockquote>
+
+        <h3>みんなで楽しんでコンピューターを使っていきましょう！</h3>
+        <p>最後に。コンピューターは難しいものじゃありません。用語に惑わされず、楽しみながら使っていきましょう！フォルダでもディレクトリでも、アドレスでも、自分がわかりやすい言葉で理解すればOKです。大事なのは、「楽しむこと」と「理解すること」です。</p>
+
+        <p>例えば、ファイルを整理するのが楽しくなったり、新しいコマンドを覚えてパソコンを自由自在に操れるようになったり、そんな風にコンピューターを楽しんでいきましょう。技術はみんなで共有するもの。みんなで楽しんで、コンピューターを使っていきましょう！</p>
+
+        <p>みなさんも、楽しんでコンピューターを使っていきましょう！</p>
+      </div>
+    </main>
+    <!-- 右カラムを読み込む -->
+    <div id="sidebar-right-placeholder"></div>
+  </div>
+  <!-- フッターを読み込む -->
+  <div id="footer-placeholder"></div>
+  <!-- 共通パーツ読み込み用JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // HTMLファイルを読み込む関数
+      function loadHTML(elementId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(elementId).innerHTML = data;
+          })
+          .catch(error => console.error(`Error loading ${filePath}:`, error));
+      }
+      // 各パーツを読み込む
+      loadHTML('header-placeholder', '../background/header.html');
+      loadHTML('sidebar-left-placeholder', '../background/sidebar-left.html');
+      loadHTML('sidebar-right-placeholder', '../background/sidebar-right.html');
+      loadHTML('footer-placeholder', '../background/footer.html');
+    });
+  </script>
+</body>
+</html>
