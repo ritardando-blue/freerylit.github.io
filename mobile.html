@@ -174,6 +174,26 @@ fetch('./' + pageName)
 // 各パーツ読み込み
 loadHTML('sidebar-right-placeholder', 'background/sidebar-right.html');
 loadHTML('footer-placeholder', 'background/footer.html');
+
+
+<script>
+// モバイルモードでブログ記事リンクを補正
+document.addEventListener('click', function (event) {
+  const link = event.target.closest('a'); // aタグをクリックしたか確認
+  if (!link) return;
+
+  const href = link.getAttribute('href');
+
+  // blog/ から始まるHTMLリンクなら mobile.html に変換
+  if (href && href.startsWith('blog/') && href.endsWith('.html')) {
+    event.preventDefault(); // 通常のリンク遷移を止める
+
+    const encoded = encodeURIComponent(href); // blog%2Fxxx.html の形にする
+    const mobileURL = `mobile.html?page=${encoded}`;
+    window.location.href = mobileURL; // mobile.html 経由で開く
+  }
+});
+
 </script>
 
 </body>
