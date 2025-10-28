@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>関数型とオブジェクト指向のちがいが、やっと少しわかってきた話</title>
+  <meta name="description" content="Pythonを勉強しながら、関数型とオブジェクト指向の違いに気づいた日記的まとめです。初心者目線で、ゆるく深く語ります。">
+  <meta name="keywords" content="Python, オブジェクト指向, 関数型, プログラミング, 初心者, ブログ, りたるだんど">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../background/pageimages/fabikonn.png" type="image/png">
+  <script>
+    if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+      window.location.href = "../mobile.html";
+    }
+  </script>
+  <style>
+    .blog-post strong {
+      color: #d35400;
+      font-weight: bold;
+    }
+    .blog-post code {
+      background-color: #f8f8f8;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: monospace;
+      color: #c00;
+    }
+    .blog-post blockquote {
+      background-color: #fff8f0;
+      border-left: 4px solid #d35400;
+      padding: 10px 15px;
+      margin: 15px 0;
+      font-style: italic;
+      color: #555;
+    }
+    .blog-post h3 {
+      color: #e65100;
+      border-bottom: 1px solid #e65100;
+      padding-bottom: 5px;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+  <div class="container">
+    <div id="sidebar-left-placeholder"></div>
+    <main class="content">
+      <div class="blog-post">
+        <h2>🎧 関数型とオブジェクト指向のちがいが、やっと少しわかってきた話</h2>
+        <div class="blog-date">更新日時: 2025/10/28</div>
+
+        <p>最近、Pythonを勉強していて「関数型」と「オブジェクト指向」っていう言葉に出会いました。正直、最初は「なんか難しそうだな……」くらいの印象で、どっちも同じように見えて、何が違うのか全然わかりませんでした。</p>
+
+        <p>でも少しずつコードを書いていくうちに、これはただの“書き方の違い”じゃなくて、<strong>「世界をどう見るか」っていう考え方の違い</strong>なんだなと感じるようになりました。</p>
+
+        <h3>🧩 オブジェクト指向は、「世界をまるごと写す」感じです</h3>
+        <p>オブジェクト指向は、現実にある“もの”をそのままプログラムの中に作る考え方です。たとえば「人」というクラスを作って、その中に「名前」や「年齢」を入れて、「話す」や「歩く」といった動作（メソッド）を書きます。</p>
+
+        <pre><code>class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def greet(self):
+        print(f"こんにちは、{self.name}です！")
+
+p1 = Person("りたるだんど", 17)
+p1.greet()
+</code></pre>
+
+        <p><code>Person</code> は設計図みたいなもので、<code>p1</code> はその設計図から作った“人”です。コードなのに、ちゃんと「僕」という存在を作れるのがなんか面白いんですよね。</p>
+
+        <h3>🧮 関数型は、「処理を積み重ねる」感じです</h3>
+        <p>関数型はもっとシンプルで、「入力→処理→出力」という流れを淡々と積み上げていく考え方です。</p>
+
+        <pre><code>def greet(name):
+    print(f"こんにちは、{name}です！")
+
+greet("りたるだんど")
+</code></pre>
+
+        <p>これも同じように動くけど、“世界”というより“計算”のイメージに近い感じがします。余計な情報がなくて、<strong>データを渡したら結果が返ってくるだけ。</strong>すごくクールで整った世界観だなって思いました。</p>
+
+        <h3>💭 なんで混乱したのかを考えてみたら</h3>
+        <p>僕が最初にプログラミングを始めたのは、HTMLとCSSでした。HTMLは「構造」、CSSは「見た目」。この2つがはっきり分かれているのが当たり前だと思っていました。</p>
+
+        <p>でもPythonでは、構造（クラス）と動作（関数）が同じ場所に書かれていて、それが最初はどうしても頭の中で整理できなかったんです。</p>
+
+        <blockquote>
+          <p>たとえるなら、HTMLのタグの中にスタイルを全部書いちゃう感じです。「え、それ別で書こうよ！」って思ってしまうやつです。笑</p>
+        </blockquote>
+
+        <h3>⚙️ C言語は関数型寄りだけど、ちょっと違う</h3>
+        <p>調べてみたら、C言語は「関数型」に近いけれど、正確には「命令型＋関数型」という考え方らしいです。main関数から始まって、上から順に命令を実行していく。だから“手で組み上げる”感じが強くて、なんだか「設計図を書く職人」っぽい雰囲気があります。</p>
+
+        <h3>🌊 僕なりの今の結論</h3>
+        <p>関数型は、<strong>論理的で淡々としている</strong>。オブジェクト指向は、<strong>世界をそのまま描ける</strong>。</p>
+
+        <p>どっちも良さがあって、どっちもむずかしいです。たぶん、どんなふうに世界を見たいかで変わるんだと思います。</p>
+
+        <p>僕はまだ初心者なので、「これは関数型？オブジェクト指向？」っていちいち迷ってます。でも、そうやって混乱しながら少しずつ形が見えてくるのが、ちょっと楽しいなって思えてきました。</p>
+
+        <h3>🎨 おわりに</h3>
+        <p>プログラムって、ただ動かすだけじゃなくて、<strong>「どう設計して、どう表現するか」</strong>の世界なんだなと思います。</p>
+
+        <p>関数型でもオブジェクト指向でも、どっちも自分の考え方や感性がそのまま出るものなんですね。</p>
+
+        <p>今日も、コードと音楽のあいだで悩みながら、少しずつ理解していこうと思います。</p>
+      </div>
+    </main>
+    <div id="sidebar-right-placeholder"></div>
+  </div>
+  <div id="footer-placeholder"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      function loadHTML(elementId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(elementId).innerHTML = data;
+          })
+          .catch(error => console.error(`Error loading ${filePath}:`, error));
+      }
+      loadHTML('header-placeholder', '../background/header.html');
+      loadHTML('sidebar-left-placeholder', '../background/sidebar-left.html');
+      loadHTML('sidebar-right-placeholder', '../background/sidebar-right.html');
+      loadHTML('footer-placeholder', '../background/footer.html');
+    });
+  </script>
+</body>
+</html>
