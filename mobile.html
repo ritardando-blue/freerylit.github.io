@@ -77,19 +77,22 @@ header {
   box-sizing: border-box;
 }
 .mobile-sidebar {
-  position: fixed;
-  top: 100px;
-  right: 0;
-  width: 200px;
-  height: calc(100% - 180px);
+  position: relative; /* fixedを解除して通常フロー内に配置 */
+  width: 100%;
+  height: auto;
   background: #fff;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  padding: 15px;
+  box-sizing: border-box;
+  overflow-y: visible;
+  z-index: 1;
+  margin-top: 40px; /* コンテンツとの間に余白 */
+}
+footer {background: #fff;
   box-shadow: -2px 0 10px rgba(0,0,0,0.1);
   padding: 15px;
   box-sizing: border-box;
-  overflow-y: auto;
-  z-index: 900;
-}
-footer {
+  over
   bottom: 0;
   left: 0;
   right: 0;
