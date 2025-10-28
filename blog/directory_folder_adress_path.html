@@ -152,6 +152,15 @@
       loadHTML('sidebar-right-placeholder', '../background/sidebar-right.html');
       loadHTML('footer-placeholder', '../background/footer.html');
     });
+
+
+
+
+
+    if (window.location.pathname.includes('/blog/') && window.innerWidth < 768) {
+  const path = window.location.pathname.replace('/blog/', 'blog%2F');
+  window.location.href = '/freerylit.github.io/mobile.html?page=' + path.split('/').pop();
+}
   </script>
 </body>
 </html>
