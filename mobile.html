@@ -161,7 +161,7 @@ function loadHTML(id, url) {
 // ページ本文読み込み
 const urlParams = new URLSearchParams(window.location.search);
 const pageName = urlParams.get('page') || 'index';
-fetch(`${pageName}.html`)
+fetch('./' + pageName)
   .then(res => res.ok ? res.text() : Promise.reject(res.status))
   .then(html => {
     const parser = new DOMParser();
