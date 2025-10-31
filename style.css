@@ -183,6 +183,28 @@ h2 {
   display: inline-block;
   padding-bottom: 5px;
 }
+/* モバイル右カラム */
+.sidebar-right-mobile {
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+.sidebar-right-mobile img {
+  width: 100px;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 10px;
+}
+.sidebar-right-mobile h3 {
+  margin: 5px 0;
+  color: #d35400;
+}
+.sidebar-right-mobile p {
+  margin: 2px 0;
+  font-size: 0.9em;
+}
 /* フッター */
 footer {
   background-color: #d35400;
