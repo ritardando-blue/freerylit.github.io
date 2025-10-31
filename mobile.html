@@ -87,37 +87,6 @@ header {
   z-index: 1;
   margin-top: 40px; /* コンテンツとの間に余白 */
 }
-<div class="sidebar-right-mobile">
-  <img src="https://ritardando-blue.github.io/freerylit.github.io/background/pageimages/icon.webp" alt="アイコン">
-  <h3>りたるだんど</h3>
-  <p>趣味で作曲しています。</p>
-  <p>パーカッション奏者</p>
-  <p>フリーBGM公開中</p>
-  <div class="update-log">
-    <h4>Nofication</h4>
-    <ul>
-      <li>現在モバイル版のレイアウトが崩れており、閲覧できない状態になっています。</li>
-    <h4>更新履歴</h4>
-    <ul>
-      <li>2025/10/28: <br>  test<br>  「test」追加</li><br>
-      <li>2025/10/28: <br>  ブログ<br>  「関数型とオブジェクト指向のちがいが、やっと少しわかってきた話」追加</li><br>
-      <li>2025/10/22: <br>  ブログ<br>  「ディレクトリとアドレスって実は似てる？フォルダとの違いも解説」追加</li><br>
-      <li>2025/10/15: <br>  ブログ<br>  「ガレージバンドのブラス音源が好きな件」追加</li><br>
-      <li>2025/10/05: <br>  BGM<br>  「ひよこの３歩」追加</li><br>
-      <li>2025/10/03: <br>  BGM<br>  「エンディング2」追加</li><br>
-      <li>2025/10/03: <br>  サイトデザイン更新</li><br>
-      <li>2025/10/03: <br>  モバイル版ページ開設</li><br>
-      <li>2025/10/03: <br>  ブログ<br>  「はじめまして！」追加</li><br>
-      <li>2025/10/03: <br>  BGM<br>  「エンディング1」追加</li><br>
-      <li>2025/10/03: <br>  Contactページ開設</li><br>
-      <li>2025/10/03: <br>  Profileページ開設</li><br>
-      <li>2025/10/03: <br>  利用規約ページ開設</li><br>
-      <li>2025/10/03: <br>  フリーBGMページ開設</li><br>
-      <li>2025/10/03: <br>  HOMEページ開設</li><br>
-      <li>2025/10/03: <br>  サイトデザイン</li><br>
-    </ul>
-  </div>
-</div>
 footer {background: #fff;
   box-shadow: -2px 0 10px rgba(0,0,0,0.1);
   padding: 15px;
@@ -164,7 +133,7 @@ footer a:hover { text-decoration: underline; }
   <h2>テスト</h2>
 </main>
 
-<div id="sidebar-right-placeholder" class="mobile-sidebar"></div>
+<div id="sidebar-right-mobile-placeholder" class="mobile-sidebar"></div>
 <div id="footer-placeholder"></div>
 
 <script>
@@ -203,7 +172,7 @@ fetch('./' + pageName)
   .catch(err => console.error('本文読み込み失敗:', err));
 
 // 各パーツ読み込み
-loadHTML('sidebar-right-placeholder', 'background/sidebar-right.html');
+loadHTML('sidebar-right-placeholder', 'background/sidebar-right-mobile.html');
 loadHTML('footer-placeholder', 'background/footer.html');
 
 
