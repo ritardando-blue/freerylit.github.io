@@ -14,79 +14,76 @@
   </script>
 </head>
 <body>
-  <!-- ヘッダーを読み込む -->
   <div id="header-placeholder"></div>
+
   <div class="container">
-    <!-- 左カラムを読み込む -->
     <div id="sidebar-left-placeholder"></div>
-    <!-- 中央カラム -->
+
     <main class="content">
       <h2>フリーBGM</h2>
       <p>このページでは、商用利用可能のBGMを配布しています。</p>
-      <p>利用規約をご確認の上、広くご利用ください。</p><br>
-        <h3>ジングル１.mp3</h3>
-        <audio controls>
-          <source src="/freerylit.github.io/bgm/mp3/ジングル１ りたるだんどな日々.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-        <br>
-        <a class="button" href="/freerylit.github.io/bgm/mp3/ジングル１ りたるだんどな日々.mp3" download>Download</a>
-      </div>
-      <br>
-  
-      <div class="song">
-        <h3>ひよこの３歩.mp3</h3>
-        <audio controls>
-          <source src="/freerylit.github.io/bgm/mp3/ひよこの３歩 りたるだんどな日々.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-        <br>
-        <a class="button" href="/freerylit.github.io/bgm/mp3/ひよこの３歩 りたるだんどな日々.mp3" download>Download</a>
-      </div>
+      <p>利用規約をご確認の上、広くご利用ください。</p>
       <br>
 
-      <div class="song">
-        <h3>エンディング2.mp3</h3>
-        <audio controls>
-          <source src="/freerylit.github.io/bgm/mp3/エンディング2 りたるだんどな日々.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-        <br>
-        <a class="button" href="/freerylit.github.io/bgm/mp3/エンディング2 りたるだんどな日々.mp3" download>Download</a>
-      </div>
-      <br>
-  
-      <div class="song">
-        <h3>エンディング1.mp3</h3>
-        <audio controls>
-          <source src="/freerylit.github.io/bgm/mp3/エンディング1 りたるだんどな日々.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-        <br>
-        <a class="button" href="/freerylit.github.io/bgm/mp3/エンディング1 りたるだんどな日々.mp3" download>Download</a>
-      </div>
-  
-    </main>
-    <!-- 右カラムを読み込む -->
+      <div class="song-list">
+        
+        <div class="song blog-post">
+          <h3>ジングル１.mp3</h3>
+          <audio controls>
+            <source src="/freerylit.github.io/bgm/mp3/ジングル１ りたるだんどな日々.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <br>
+          <a class="button" href="/freerylit.github.io/bgm/mp3/ジングル１ りたるだんどな日々.mp3" download>Download</a>
+        </div>
+
+        <div class="song blog-post">
+          <h3>ひよこの３歩.mp3</h3>
+          <audio controls>
+            <source src="/freerylit.github.io/bgm/mp3/ひよこの３歩 りたるだんどな日々.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <br>
+          <a class="button" href="/freerylit.github.io/bgm/mp3/ひよこの３歩 りたるだんどな日々.mp3" download>Download</a>
+        </div>
+
+        <div class="song blog-post">
+          <h3>エンディング2.mp3</h3>
+          <audio controls>
+            <source src="/freerylit.github.io/bgm/mp3/エンディング2 りたるだんどな日々.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <br>
+          <a class="button" href="/freerylit.github.io/bgm/mp3/エンディング2 りたるだんどな日々.mp3" download>Download</a>
+        </div>
+
+        <div class="song blog-post">
+          <h3>エンディング1.mp3</h3>
+          <audio controls>
+            <source src="/freerylit.github.io/bgm/mp3/エンディング1 りたるだんどな日々.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <br>
+          <a class="button" href="/freerylit.github.io/bgm/mp3/エンディング1 りたるだんどな日々.mp3" download>Download</a>
+        </div>
+
+      </div> </main>
+
     <div id="sidebar-right-placeholder"></div>
-  </div>
-  <!-- フッターを読み込む -->
-  <div id="footer-placeholder"></div>
+  </div> <div id="footer-placeholder"></div>
 
-  <!-- 共通パーツ読み込み用JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // HTMLファイルを読み込む関数
       function loadHTML(elementId, filePath) {
         fetch(filePath)
           .then(response => response.text())
           .then(data => {
-            document.getElementById(elementId).innerHTML = data;
+            const el = document.getElementById(elementId);
+            if(el) el.innerHTML = data;
           })
           .catch(error => console.error(`Error loading ${filePath}:`, error));
       }
 
-      // 各パーツを読み込む
       loadHTML('header-placeholder', '../background/header.html');
       loadHTML('sidebar-left-placeholder', '../background/sidebar-left.html');
       loadHTML('sidebar-right-placeholder', '../background/sidebar-right.html');
