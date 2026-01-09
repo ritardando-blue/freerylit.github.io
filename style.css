@@ -235,6 +235,18 @@ a.button {
 a.button:hover {
   background: #ff7f50;
 }
+/* NEW!プレイヤーを使いやすくする */
+audio {
+  width: 100%;
+  max-width: 350px;
+  margin-top: 10px;
+}
+/* NEW!曲ごとの区切りを分かりやすく */
+.song {
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #f2c474;
+  margin-bottom: 30px;
+}
 /* ブログリスト */
 ul.blog-list {
   list-style: none;
