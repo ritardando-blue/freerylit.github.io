@@ -279,9 +279,21 @@ document.addEventListener('click', function (event) {
 
   const href = link.getAttribute('href');
 
-  if (href && href.includes('blog/') && href.endsWith('.html')) {
+  if (!href) return;
+
+  if (
+    href.includes('blog/') ||
+    href.includes('/blog/') ||
+    href.includes('kikacool.com/blog/')
+  ) {
     event.preventDefault();
-    const encoded = encodeURIComponent(href.replace('./', ''));
+
+    const clean = href
+      .replace('https://kikacool.com/', '')
+      .replace('./', '');
+
+    const encoded = encodeURIComponent(clean);
+
     window.location.href = `mobile.html?page=${encoded}`;
   }
 }
