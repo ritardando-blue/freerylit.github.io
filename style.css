@@ -75,13 +75,7 @@ header {
   font-size: 15px;
 }
 
-.sidebar-left a,
-.sidebar-left .youtube-embed {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 
-    opacity 0.4s ease,
-    transform 0.4s ease;
+
 }
 .fade-item {
   opacity: 0;
