@@ -6,6 +6,7 @@
 <title>りたるだんどな日々 - フリーBGM</title>
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="background/pageimages/fabikonn.png" type="image/png">
+
 <style>
 body {
   margin: 0;
@@ -13,13 +14,12 @@ body {
   background: #fff8f0;
   color: #333;
 }
+
+/* ヘッダー */
 header {
   height: 100px;
   background: url('background/pageimages/header.webp') no-repeat center center;
   background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -27,6 +27,8 @@ header {
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
+
+/* ハンバーガー */
 .hamburger {
   position: fixed;
   top: 105px;
@@ -38,25 +40,34 @@ header {
   color: #d35400;
   z-index: 1998;
 }
+
+/* ✅ メニュー（PCと完全統一） */
 .menu {
   display: none;
   position: fixed;
   top: 100px;
   left: 0;
   width: 100%;
-  background: #f2c474 url('background/pageimages/pattern.png') repeat;
+  background: #f2c474;
+  background-image: url('background/pageimages/pattern.webp');
+  background-repeat: repeat;
+  background-size: 250px 250px;
   z-index: 1999;
   padding: 20px;
   box-sizing: border-box;
 }
+
 .menu a {
   display: block;
-  margin: 8px 0;
-  padding: 8px 12px;
+  margin: 10px 0;
+  padding: 10px 14px;
   color: #612d00;
   text-decoration: none;
   font-weight: bold;
+  font-size: 18px;
 }
+
+/* 閉じるボタン */
 .close-btn {
   display: none;
   position: fixed;
@@ -69,54 +80,49 @@ header {
   color: #612d00;
   z-index: 2000;
 }
+
+/* メイン */
 #mobileContent {
   margin-top: 120px;
-  margin-bottom: 90px; /* フッター高さ + 少し余白 */
   padding: 20px;
   box-sizing: border-box;
 }
+
+/* ✅ sidebar-right → 下に表示 */
 .mobile-sidebar {
-  position: relative; /* fixedを解除して通常フロー内に配置 */
   width: 100%;
-  height: auto;
   background: #fff;
   box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-  padding: 15px;
+  padding: 20px;
   box-sizing: border-box;
-  overflow-y: visible;
-  z-index: 1;
-  margin-top: 40px; /* コンテンツとの間に余白 */
+  margin-top: 40px;
 }
-footer {background: #fff;
-  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-  padding: 15px;
-  box-sizing: border-box;
-  over
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
+
+/* フッター */
+footer {
   background-color: #d35400;
   color: white;
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  padding: 20px;
 }
+
 footer a {
   color: white;
   text-decoration: none;
   margin: 0 5px;
 }
-footer a:hover { text-decoration: underline; }
+
+footer a:hover {
+  color: #fff2e0;
+}
 </style>
 </head>
+
 <body>
 
-<header>
-  <button class="hamburger" onclick="toggleMenu()">☰</button>
-</header>
+<header></header>
+
+<button class="hamburger" onclick="toggleMenu()">☰</button>
 
 <div class="menu" id="menu">
   <a href="mobile.html?page=index">HOME</a>
@@ -129,15 +135,13 @@ footer a:hover { text-decoration: underline; }
 
 <button class="close-btn" onclick="closeMenu()">✖</button>
 
-<main id="mobileContent">
-  <h2>テスト</h2>
-</main>
+<main id="mobileContent"></main>
 
+<!-- ✅ 順番：本文 → sidebar → footer -->
 <div id="sidebar-right-mobile-placeholder" class="mobile-sidebar"></div>
 <div id="footer-placeholder"></div>
 
 <script>
-// ハンバーガーメニュー
 function toggleMenu() {
   const menu = document.getElementById('menu');
   const closeBtn = document.querySelector('.close-btn');
@@ -145,12 +149,13 @@ function toggleMenu() {
   menu.style.display = show ? 'block' : 'none';
   closeBtn.style.display = show ? 'block' : 'none';
 }
+
 function closeMenu() {
   document.getElementById('menu').style.display = 'none';
   document.querySelector('.close-btn').style.display = 'none';
 }
 
-// HTMLパーツ読み込み
+/* HTMLパーツ読み込み */
 function loadHTML(id, url) {
   fetch(url)
     .then(res => res.ok ? res.text() : Promise.reject(res.status))
@@ -158,9 +163,10 @@ function loadHTML(id, url) {
     .catch(err => console.error('読み込み失敗:', url, err));
 }
 
-// ページ本文読み込み
+/* 本文読み込み */
 const urlParams = new URLSearchParams(window.location.search);
 const pageName = urlParams.get('page') || 'index';
+
 fetch('./' + pageName)
   .then(res => res.ok ? res.text() : Promise.reject(res.status))
   .then(html => {
@@ -171,31 +177,25 @@ fetch('./' + pageName)
   })
   .catch(err => console.error('本文読み込み失敗:', err));
 
-// 各パーツ読み込み
-loadHTML('sidebar-right-placeholder', 'background/sidebar-right-mobile.html');
+/* ✅ PCのsidebarをそのまま流用 */
+loadHTML('sidebar-right-mobile-placeholder', 'background/sidebar-right.html');
+
+/* フッター */
 loadHTML('footer-placeholder', 'background/footer.html');
 
-
-
-
-  
-// モバイルモードでブログ記事リンクを補正
+/* ブログリンク補正 */
 document.addEventListener('click', function (event) {
-  const link = event.target.closest('a'); // aタグをクリックしたか確認
+  const link = event.target.closest('a');
   if (!link) return;
 
   const href = link.getAttribute('href');
 
-  // blog/ から始まるHTMLリンクなら mobile.html に変換
   if (href && href.startsWith('blog/') && href.endsWith('.html')) {
-    event.preventDefault(); // 通常のリンク遷移を止める
-
-    const encoded = encodeURIComponent(href); // blog%2Fxxx.html の形にする
-    const mobileURL = `mobile.html?page=${encoded}`;
-    window.location.href = mobileURL; // mobile.html 経由で開く
+    event.preventDefault();
+    const encoded = encodeURIComponent(href);
+    window.location.href = `mobile.html?page=${encoded}`;
   }
 });
-
 </script>
 
 </body>
