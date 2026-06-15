@@ -71,44 +71,9 @@ header {
   color: #612d00;
   font-weight: bold;
   border-radius: 0px;
-  font-size: 15px;
   transition: background-color 0.3s, color 0.3s;
+  font-size: 15px;
 }
-
-}
-
-.fade-item {
-  opacity: 0;
-  transform: translateY(20px);
-
-transition: 
-  opacity 0.4s ease,
-  transform 0.4s ease;
-
-}
-
-.fade-item.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.sidebar-left .show {
-  opacity: 1;
-  transform: translateY(0);
-}
-.sidebar-left a:nth-child(1) { transition-delay: 0s; }
-.sidebar-left a:nth-child(2) { transition-delay: 0.1s; }
-.sidebar-left a:nth-child(3) { transition-delay: 0.2s; }
-.sidebar-left a:nth-child(4) { transition-delay: 0.3s; }
-.sidebar-left a:nth-child(5) { transition-delay: 0.4s; }
-.sidebar-left a:nth-child(6) { transition-delay: 0.5s; }
-
-.sidebar-left .youtube-embed:nth-of-type(1) { transition-delay: 0.6s; }
-.sidebar-left .youtube-embed:nth-of-type(2) { transition-delay: 0.7s; }
-.sidebar-left .youtube-embed:nth-of-type(3) { transition-delay: 0.8s; }
-.sidebar-left .youtube-embed:nth-of-type(4) { transition-delay: 0.9s; }
-.sidebar-left .youtube-embed:nth-of-type(5) { transition-delay: 1.0s; }
-
 .sidebar-left a:hover {
   background-color: #ffe08a;
   color: #612d00;
@@ -128,10 +93,8 @@ transition:
   background: white;
   position: relative;
   width: 180px;
-
-  padding-top: 50%; /* ←これ残す（元仕様） */
-
-  box-sizing: border-box;
+  padding-top: 50%;
+  box-sizing: border-box; /* パディングを含めて幅を計算 */
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 /* リンク全体をホバー対象にする */
