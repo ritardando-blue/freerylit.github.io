@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>りたるだんどな日々 - フリーBGM</title>
 <link rel="stylesheet" href="style.css">
-<link rel="icon" href="background/pageimages/fabikonn.png" type="image/png">
+background/pageimages/fabikonn.png
 
 <style>
 body {
@@ -41,7 +41,7 @@ header {
   z-index: 1998;
 }
 
-/* ✅ PCと同じ見た目のメニュー */
+/* メニュー */
 .menu {
   display: none;
   position: fixed;
@@ -88,7 +88,7 @@ header {
   box-sizing: border-box;
 }
 
-/* sidebar表示（折りたたみ用） */
+/* ✅ sidebar（中央揃え込み） */
 .mobile-sidebar {
   width: 100%;
   background: #fff;
@@ -96,9 +96,15 @@ header {
   padding: 20px;
   box-sizing: border-box;
   margin-top: 40px;
+  text-align: center;
 }
 
-/* ✅ 折りたたみUI */
+/* 中身も全部中央 */
+.mobile-sidebar * {
+  text-align: center;
+}
+
+/* 折りたたみ */
 details {
   background: #fff;
   padding: 10px;
@@ -111,6 +117,12 @@ summary {
   cursor: pointer;
   color: #d35400;
   margin-bottom: 10px;
+}
+
+/* 箇条書きも中央寄せ */
+.mobile-sidebar ul {
+  padding-left: 0;
+  list-style-position: inside;
 }
 
 /* フッター */
@@ -152,7 +164,7 @@ footer a:hover {
 
 <main id="mobileContent"></main>
 
-<!-- ✅ ここが今回のコア（折りたたみ） -->
+<!-- ✅ 折りたたみ＋中央寄せ -->
 <div class="mobile-sidebar">
   <details>
     <summary>プロフィール・更新履歴を見る</summary>
@@ -176,7 +188,6 @@ function closeMenu() {
   document.querySelector('.close-btn').style.display = 'none';
 }
 
-/* HTML読み込み */
 function loadHTML(id, url) {
   fetch(url)
     .then(res => res.ok ? res.text() : Promise.reject(res.status))
@@ -184,7 +195,6 @@ function loadHTML(id, url) {
     .catch(err => console.error('読み込み失敗:', url, err));
 }
 
-/* 本文 */
 const urlParams = new URLSearchParams(window.location.search);
 const pageName = urlParams.get('page') || 'index';
 
@@ -198,13 +208,13 @@ fetch('./' + pageName)
   })
   .catch(err => console.error('本文読み込み失敗:', err));
 
-/* ✅ PCのsidebarをそのまま使う */
+/* PCのsidebarそのまま流用 */
 loadHTML('sidebar-inner', 'background/sidebar-right.html');
 
 /* フッター */
 loadHTML('footer-placeholder', 'background/footer.html');
 
-/* ブログ用リンク補正 */
+/* ブログリンク補正 */
 document.addEventListener('click', function (event) {
   const link = event.target.closest('a');
   if (!link) return;
