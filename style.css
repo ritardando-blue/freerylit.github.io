@@ -71,18 +71,21 @@ header {
   color: #612d00;
   font-weight: bold;
   border-radius: 0px;
-  transition: background-color 0.3s, color 0.3s;
   font-size: 15px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 
 }
+
 .fade-item {
   opacity: 0;
   transform: translateY(20px);
   transition: 
     opacity 0.4s ease,
-    transform 0.4s ease;
+    transform 0.4s ease,
+    background-color 0.3s,
+    color 0.3s;
 }
 
 .fade-item.show {
