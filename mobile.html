@@ -272,6 +272,18 @@ function toggleProfile() {
     box.classList.add("show");
     arrow.textContent = "▼";
   }
+
+document.addEventListener('click', function (event) {
+  const link = event.target.closest('a');
+  if (!link) return;
+
+  const href = link.getAttribute('href');
+
+  if (href && href.includes('blog/') && href.endsWith('.html')) {
+    event.preventDefault();
+    const encoded = encodeURIComponent(href.replace('./', ''));
+    window.location.href = `mobile.html?page=${encoded}`;
+  }
 }
 </script>
 
