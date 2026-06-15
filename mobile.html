@@ -6,7 +6,79 @@
 <title>りたるだんどな日々 - フリーBGM</title>
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="background/pageimages/fabikonn.png" type="image/png">
+
 <style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff8f0;
+  color: #333;
+}
+
+/* ヘッダー */
+header {
+  height: 100px;
+  background: url('background/pageimages/header.webp') no-repeat center center;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* ハンバーガー */
+.hamburger {
+  position: fixed;
+  top: 105px;
+  left: 10px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #d35400;
+  z-index: 1998;
+}
+
+/* メニュー */
+.menu {
+  display: none;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  background: #f2c474;
+  background-image: url('background/pageimages/pattern.webp');
+  background-repeat: repeat;
+  background-size: 250px 250px;
+  z-index: 1999;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.menu a {
+  display: block;
+  margin: 10px 0;
+  padding: 10px 14px;
+  color: #612d00;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* 閉じる */
+.close-btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #612d00;
+  z-index: 2000;
+}
 
 /* 本文 */
 #mobileContent {
@@ -15,23 +87,24 @@
   box-sizing: border-box;
 }
 
-/* ✅ 横ベター（箱やめる） */
+/* ✅ 横ベター＆ズレ防止 */
 .mobile-sidebar {
   width: 100%;
-  padding: 20px;
+  padding: 10px 0;
   box-sizing: border-box;
-  text-align: center;
 }
 
-/* ✅ 中身中央 */
-.mobile-sidebar * {
-  text-align: center;
-}
-
-/* ✅ アイコン完全中央 */
+/* ✅ 個別中央（ズレ防止） */
 .mobile-sidebar img {
   display: block;
   margin: 0 auto 10px auto;
+}
+
+.mobile-sidebar h3,
+.mobile-sidebar p,
+.mobile-sidebar h4,
+summary {
+  text-align: center;
 }
 
 /* 折りたたみ */
@@ -48,10 +121,22 @@ summary {
   margin-bottom: 10px;
 }
 
-/* リスト */
+/* ✅ リストは左寄せ（安定） */
 .mobile-sidebar ul {
-  padding-left: 0;
-  list-style-position: inside;
+  padding-left: 20px;
+}
+
+/* フッター */
+footer {
+  background-color: #d35400;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
 }
 
 </style>
@@ -76,7 +161,7 @@ summary {
 
 <main id="mobileContent"></main>
 
-<!-- ✅ 折りたたみ + 中央配置 -->
+<!-- ✅ 折りたたみ -->
 <div class="mobile-sidebar">
   <details>
     <summary>プロフィール・更新履歴を見る</summary>
@@ -100,7 +185,7 @@ function closeMenu() {
   document.querySelector('.close-btn').style.display = 'none';
 }
 
-/* 読み込み */
+/* HTML読み込み */
 function loadHTML(id, url) {
   fetch(url)
     .then(res => res.ok ? res.text() : Promise.reject(res.status))
@@ -121,7 +206,7 @@ fetch('./' + pageName)
     if(content) document.getElementById('mobileContent').innerHTML = content.innerHTML;
   });
 
-/* sidebar */
+/* sidebar（PC流用） */
 loadHTML('sidebar-inner', 'background/sidebar-right.html');
 
 /* footer */
