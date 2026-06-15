@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>りたるだんどな日々 - フリーBGM</title>
+<link rel="stylesheet" href="style.css">
+
 <style>
 
 /* 本文 */
@@ -47,3 +55,92 @@ summary {
 }
 
 </style>
+</head>
+
+<body>
+
+<header></header>
+
+<button class="hamburger" onclick="toggleMenu()">☰</button>
+
+<div class="menu" id="menu">
+  <a href="mobile.html?page=index">HOME</a>
+  <a href="mobile.html?page=bgm%2Findex.html">フリーBGM</a>
+  <a href="mobile.html?page=blog%2Findex.html">Blog</a>
+  <a href="mobile.html?page=profile.html">Profile</a>
+  <a href="mobile.html?page=contact.html">Contact</a>
+  <a href="mobile.html?page=terms.html">利用規約</a>
+</div>
+
+<button class="close-btn" onclick="closeMenu()">✖</button>
+
+<main id="mobileContent"></main>
+
+<!-- ✅ 折りたたみ + 中央配置 -->
+<div class="mobile-sidebar">
+  <details>
+    <summary>プロフィール・更新履歴を見る</summary>
+    <div id="sidebar-inner"></div>
+  </details>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('menu');
+  const closeBtn = document.querySelector('.close-btn');
+  const show = menu.style.display !== 'block';
+  menu.style.display = show ? 'block' : 'none';
+  closeBtn.style.display = show ? 'block' : 'none';
+}
+
+function closeMenu() {
+  document.getElementById('menu').style.display = 'none';
+  document.querySelector('.close-btn').style.display = 'none';
+}
+
+/* 読み込み */
+function loadHTML(id, url) {
+  fetch(url)
+    .then(res => res.ok ? res.text() : Promise.reject(res.status))
+    .then(html => document.getElementById(id).innerHTML = html)
+    .catch(err => console.error('読み込み失敗:', url, err));
+}
+
+/* 本文 */
+const urlParams = new URLSearchParams(window.location.search);
+const pageName = urlParams.get('page') || 'index';
+
+fetch('./' + pageName)
+  .then(res => res.ok ? res.text() : Promise.reject(res.status))
+  .then(html => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const content = doc.querySelector('.content') || doc.querySelector('main') || doc.querySelector('body');
+    if(content) document.getElementById('mobileContent').innerHTML = content.innerHTML;
+  });
+
+/* sidebar */
+loadHTML('sidebar-inner', 'background/sidebar-right.html');
+
+/* footer */
+loadHTML('footer-placeholder', 'background/footer.html');
+
+/* リンク補正 */
+document.addEventListener('click', function (event) {
+  const link = event.target.closest('a');
+  if (!link) return;
+
+  const href = link.getAttribute('href');
+
+  if (href && href.startsWith('blog/') && href.endsWith('.html')) {
+    event.preventDefault();
+    const encoded = encodeURIComponent(href);
+    window.location.href = `mobile.html?page=${encoded}`;
+  }
+});
+</script>
+
+</body>
+</html>
