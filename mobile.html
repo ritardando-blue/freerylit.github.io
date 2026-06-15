@@ -41,7 +41,7 @@ header {
   z-index: 1998;
 }
 
-/* ✅ メニュー（PCと完全統一） */
+/* ✅ PCと同じ見た目のメニュー */
 .menu {
   display: none;
   position: fixed;
@@ -81,14 +81,14 @@ header {
   z-index: 2000;
 }
 
-/* メイン */
+/* 本文 */
 #mobileContent {
   margin-top: 120px;
   padding: 20px;
   box-sizing: border-box;
 }
 
-/* ✅ sidebar-right → 下に表示 */
+/* sidebar表示（折りたたみ用） */
 .mobile-sidebar {
   width: 100%;
   background: #fff;
@@ -96,6 +96,21 @@ header {
   padding: 20px;
   box-sizing: border-box;
   margin-top: 40px;
+}
+
+/* ✅ 折りたたみUI */
+details {
+  background: #fff;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+summary {
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  color: #d35400;
+  margin-bottom: 10px;
 }
 
 /* フッター */
@@ -137,8 +152,14 @@ footer a:hover {
 
 <main id="mobileContent"></main>
 
-<!-- ✅ 順番：本文 → sidebar → footer -->
-<div id="sidebar-right-mobile-placeholder" class="mobile-sidebar"></div>
+<!-- ✅ ここが今回のコア（折りたたみ） -->
+<div class="mobile-sidebar">
+  <details>
+    <summary>プロフィール・更新履歴を見る</summary>
+    <div id="sidebar-inner"></div>
+  </details>
+</div>
+
 <div id="footer-placeholder"></div>
 
 <script>
@@ -155,7 +176,7 @@ function closeMenu() {
   document.querySelector('.close-btn').style.display = 'none';
 }
 
-/* HTMLパーツ読み込み */
+/* HTML読み込み */
 function loadHTML(id, url) {
   fetch(url)
     .then(res => res.ok ? res.text() : Promise.reject(res.status))
@@ -163,7 +184,7 @@ function loadHTML(id, url) {
     .catch(err => console.error('読み込み失敗:', url, err));
 }
 
-/* 本文読み込み */
+/* 本文 */
 const urlParams = new URLSearchParams(window.location.search);
 const pageName = urlParams.get('page') || 'index';
 
@@ -177,13 +198,13 @@ fetch('./' + pageName)
   })
   .catch(err => console.error('本文読み込み失敗:', err));
 
-/* ✅ PCのsidebarをそのまま流用 */
-loadHTML('sidebar-right-mobile-placeholder', 'background/sidebar-right.html');
+/* ✅ PCのsidebarをそのまま使う */
+loadHTML('sidebar-inner', 'background/sidebar-right.html');
 
 /* フッター */
 loadHTML('footer-placeholder', 'background/footer.html');
 
-/* ブログリンク補正 */
+/* ブログ用リンク補正 */
 document.addEventListener('click', function (event) {
   const link = event.target.closest('a');
   if (!link) return;
