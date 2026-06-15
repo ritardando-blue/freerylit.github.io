@@ -143,16 +143,16 @@ details[open] .arrow {
   transform: rotate(90deg);
 }
 
-  /* ▼ なめらかに開く */
 .mobile-sidebar-inner {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.25s ease;
 }
 
-/* ▼ 開いたとき */
+/* 開いたとき */
 details[open] .mobile-sidebar-inner {
-  max-height: 500px; /* 適当に大きめ */
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
 
