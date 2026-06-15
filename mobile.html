@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>りたるだんどな日々 - フリーBGM</title>
 
 <link rel="stylesheet" href="style.css">
-<link rel="icon" href="background/pageimages/fabikonn.png" type="image/png">
+<link rel="icon" href="background/pageimages/fabikonn.png">
 
 <style>
 body {
   margin: 0;
+  font-family: Arial, sans-serif;
   background: #fff8f0;
 }
 
@@ -36,7 +36,7 @@ header {
   z-index: 2000;
 }
 
-/* メニュー */
+/* ✅ メニュー（フォント統一） */
 .menu {
   display: none;
   position: fixed;
@@ -44,7 +44,8 @@ header {
   width: 100%;
   background: #f2c474 url('background/pageimages/pattern.webp');
   padding: 20px;
-  z-index: 1500;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 .menu a {
@@ -52,6 +53,7 @@ header {
   margin: 10px 0;
   text-decoration: none;
   color: #612d00;
+  font-weight: bold;
 }
 
 /* 本文 */
@@ -60,9 +62,11 @@ header {
   padding: 20px;
 }
 
-/* ✅ 白背景ゾーン */
+/* ✅ 白エリア */
 .mobile-sidebar {
+  width: 100%;
   background: #fff;
+  padding: 10px 0;
 }
 
 /* ✅ 折りたたみ */
@@ -70,7 +74,7 @@ details {
   margin: 0;
 }
 
-/* ✅ 矢印消す */
+/* ✅ 矢印消し */
 summary {
   list-style: none;
   text-align: center;
@@ -78,36 +82,50 @@ summary {
   color: #d35400;
   padding: 10px 0;
 }
-
 summary::-webkit-details-marker {
   display: none;
 }
 
-/* ✅ 中央制御 */
+/* ✅ 中央軸 */
 .mobile-sidebar-inner {
   max-width: 320px;
   margin: 0 auto;
 }
 
-/* ✅ 強制中央 */
+/* ✅ 最重要：PCの影響を完全遮断 */
+#sidebar-inner,
 #sidebar-inner * {
+  font-family: Arial, sans-serif !important;
   text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-/* ✅ アイコン */
+/* アイコン */
 #sidebar-inner img {
   display: block;
-  margin: 0 auto 10px;
+  margin: 0 auto 12px;
+  max-width: 100px;
 }
 
 /* ✅ リストだけ戻す */
 #sidebar-inner ul {
   text-align: left !important;
   max-width: 260px;
-  margin: 0 auto;
 }
 
-/* ✅ フッター */
+/* ✅ footer余白対策（これが核心） */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#footer-placeholder {
+  margin-top: auto;
+}
+
+/* footer */
 footer {
   background: #d35400;
   color: white;
@@ -115,7 +133,6 @@ footer {
   padding: 20px;
 }
 </style>
-
 </head>
 
 <body>
@@ -155,7 +172,7 @@ function toggleMenu() {
     menu.style.display === "block" ? "none" : "block";
 }
 
-/* HTML読み込み */
+/* 読み込み */
 function loadHTML(id, url) {
   fetch(url)
     .then(res => res.text())
@@ -183,4 +200,3 @@ loadHTML("footer-placeholder", "background/footer.html");
 
 </body>
 </html>
-``
