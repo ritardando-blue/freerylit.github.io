@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
     );
 
     fadeTargets.forEach((el, index) => {
+      el.classList.add("fade-item"); // ←これだけ追加
       setTimeout(() => {
         el.classList.add("show");
       }, index * 100);
