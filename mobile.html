@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>りたるだんどな日々 - フリーBGM</title>
 
 <link rel="stylesheet" href="style.css">
-<link rel="icon" href="background/pageimages/fabikonn.png">
+link rel="icon" href="background/pageimages/fabikonn.png" type="image/png">
 
 <style>
 body {
@@ -25,34 +26,36 @@ header {
   z-index: 1000;
 }
 
-/* ハンバーガー */
+/* ✅ ハンバーガー */
 .hamburger {
   position: fixed;
-  top: 105px;
-  left: 10px;
+  top: 110px;
+  left: 12px;
   font-size: 26px;
   background: none;
   border: none;
-  z-index: 2000;
+  color: #d35400;
+  z-index: 3000;
 }
 
-/* ✅ メニュー（フォント統一） */
+/* ✅ メニュー */
 .menu {
   display: none;
   position: fixed;
   top: 100px;
   width: 100%;
   background: #f2c474 url('background/pageimages/pattern.webp');
-  padding: 20px;
+  padding: 60px 20px 20px; /* ←被り回避 */
   box-sizing: border-box;
+  z-index: 2000;
   font-family: Arial, sans-serif;
 }
 
 .menu a {
   display: block;
-  margin: 10px 0;
-  text-decoration: none;
+  margin: 12px 0;
   color: #612d00;
+  text-decoration: none;
   font-weight: bold;
 }
 
@@ -62,19 +65,13 @@ header {
   padding: 20px;
 }
 
-/* ✅ 白エリア */
+/* ✅ 白ゾーン */
 .mobile-sidebar {
-  width: 100%;
   background: #fff;
   padding: 10px 0;
 }
 
-/* ✅ 折りたたみ */
-details {
-  margin: 0;
-}
-
-/* ✅ 矢印消し */
+/* 折りたたみ */
 summary {
   list-style: none;
   text-align: center;
@@ -92,7 +89,7 @@ summary::-webkit-details-marker {
   margin: 0 auto;
 }
 
-/* ✅ 最重要：PCの影響を完全遮断 */
+/* ✅ PC CSS完全上書き */
 #sidebar-inner,
 #sidebar-inner * {
   font-family: Arial, sans-serif !important;
@@ -105,34 +102,31 @@ summary::-webkit-details-marker {
 #sidebar-inner img {
   display: block;
   margin: 0 auto 12px;
-  max-width: 100px;
 }
 
-/* ✅ リストだけ戻す */
+/* リストだけ戻す */
 #sidebar-inner ul {
   text-align: left !important;
   max-width: 260px;
 }
 
-/* ✅ footer余白対策（これが核心） */
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* ✅ footer余白完全排除 */
+html, body {
+  height: 100%;
 }
 
 #footer-placeholder {
-  margin-top: auto;
+  margin: 0;
 }
 
-/* footer */
 footer {
   background: #d35400;
-  color: white;
+  color: #fff;
   text-align: center;
   padding: 20px;
 }
 </style>
+
 </head>
 
 <body>
@@ -168,11 +162,18 @@ footer {
 <script>
 function toggleMenu() {
   const menu = document.getElementById("menu");
-  menu.style.display =
-    menu.style.display === "block" ? "none" : "block";
+  const btn = document.querySelector(".hamburger");
+
+  if (menu.style.display === "block") {
+    menu.style.display = "none";
+    btn.style.color = "#d35400"; // 閉じた
+  } else {
+    menu.style.display = "block";
+    btn.style.color = "#612d00"; // 開いた
+  }
 }
 
-/* 読み込み */
+/* HTML読み込み */
 function loadHTML(id, url) {
   fetch(url)
     .then(res => res.text())
