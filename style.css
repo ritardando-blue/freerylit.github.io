@@ -84,8 +84,6 @@ header {
   transition: 
     opacity 0.4s ease,
     transform 0.4s ease,
-    background-color 0.3s,
-    color 0.3s;
 }
 
 .fade-item.show {
