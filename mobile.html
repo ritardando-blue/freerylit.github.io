@@ -169,11 +169,13 @@ details[open] .arrow {
 .mobile-sidebar-inner {
   position: absolute;
   top: 100%;
-  left: 0;
-  width: 100%;
+  left: 50％;
+  width: 100vw;           /* ←画面いっぱい */
   background: #fff;
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateX(-50%) translateY(-10px);
+  pointer-events: none;
+  z-index: 2000;
   transition:
     opacity 0.25s ease,
     transform 0.25s ease;
@@ -182,7 +184,7 @@ details[open] .arrow {
 /* ✅ 開いたとき */
 .mobile-sidebar-inner.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
   pointer-events: auto;
 }
 </style>
