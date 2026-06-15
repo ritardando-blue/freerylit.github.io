@@ -95,6 +95,7 @@ header {
 .mobile-sidebar {
   background: #fff;
   padding: 10px 0;
+  position: relative;
 }
 
 /* 折りたたみ */
@@ -166,12 +167,12 @@ details[open] .arrow {
 }
 
 .mobile-sidebar-inner {
-  max-height: 0;
-  overflow: hidden;
-
+  position: absolute;
+  top: 100%;   /* summaryのすぐ下 */
+  left: 0;
+  width: 100%;
   opacity: 0;
   transform: translateY(-10px);
-
   transition:
     max-height 0.4s ease,
     opacity 0.25s ease,
@@ -180,9 +181,9 @@ details[open] .arrow {
 
 /* ✅ 開いたとき */
 .mobile-sidebar-inner.show {
-  max-height: 1200px; /* ←少し余裕もたせる */
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
 }
 </style>
 
