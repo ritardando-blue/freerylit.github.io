@@ -272,7 +272,7 @@ function toggleProfile() {
     box.classList.add("show");
     arrow.textContent = "▼";
   }
-
+}
 document.addEventListener('click', function (event) {
   const link = event.target.closest('a');
   if (!link) return;
@@ -280,7 +280,7 @@ document.addEventListener('click', function (event) {
   const href = link.href;
   if (!href) return;
 
-  if (href.includes('/blog/') && href.endsWith('.html')) {
+if (href.includes('/blog/') && href.endsWith('.html')) {
     event.preventDefault();
 
     const clean = href.replace('https://kikacool.com/', '');
