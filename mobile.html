@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>りたるだんどな日々 - フリーBGM</title>
+
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="background/pageimages/fabikonn.png" type="image/png">
 
@@ -20,6 +22,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1000;
 }
 
 /* ハンバーガー */
@@ -27,9 +30,10 @@ header {
   position: fixed;
   top: 105px;
   left: 10px;
-  font-size: 28px;
+  font-size: 26px;
   background: none;
   border: none;
+  z-index: 2000;
 }
 
 /* メニュー */
@@ -40,6 +44,14 @@ header {
   width: 100%;
   background: #f2c474 url('background/pageimages/pattern.webp');
   padding: 20px;
+  z-index: 1500;
+}
+
+.menu a {
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  color: #612d00;
 }
 
 /* 本文 */
@@ -50,67 +62,60 @@ header {
 
 /* ✅ 白背景ゾーン */
 .mobile-sidebar {
-  width: 100%;
   background: #fff;
-  padding: 10px 0;
 }
 
-/* ✅ 閉じたとき余白なし */
-.mobile-sidebar details:not([open]) {
-  padding: 0;
+/* ✅ 折りたたみ */
+details {
   margin: 0;
 }
 
-/* ✅ 矢印完全削除 */
+/* ✅ 矢印消す */
 summary {
   list-style: none;
-}
-summary::-webkit-details-marker {
-  display: none;
-}
-
-/* ✅ summary中央 */
-summary {
   text-align: center;
   font-weight: bold;
   color: #d35400;
   padding: 10px 0;
 }
 
-/* ✅ 中央の芯 */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* ✅ 中央制御 */
 .mobile-sidebar-inner {
   max-width: 320px;
   margin: 0 auto;
 }
 
-/* ✅ すべて中央に上書き */
+/* ✅ 強制中央 */
 #sidebar-inner * {
   text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
 }
 
 /* ✅ アイコン */
 #sidebar-inner img {
   display: block;
-  margin: 0 auto 12px;
+  margin: 0 auto 10px;
 }
 
-/* ✅ リストだけ例外 */
+/* ✅ リストだけ戻す */
 #sidebar-inner ul {
   text-align: left !important;
   max-width: 260px;
+  margin: 0 auto;
 }
 
-/* ✅ フッター安定 */
+/* ✅ フッター */
 footer {
   background: #d35400;
   color: white;
   text-align: center;
   padding: 20px;
-  margin: 0;
 }
 </style>
+
 </head>
 
 <body>
@@ -130,7 +135,6 @@ footer {
 
 <main id="mobileContent"></main>
 
-<!-- ✅ 折りたたみ -->
 <div class="mobile-sidebar">
   <details>
     <summary>プロフィール・更新履歴を見る</summary>
@@ -146,11 +150,12 @@ footer {
 
 <script>
 function toggleMenu() {
-  const menu = document.getElementById('menu');
+  const menu = document.getElementById("menu");
   menu.style.display =
-    menu.style.display === 'block' ? 'none' : 'block';
+    menu.style.display === "block" ? "none" : "block";
 }
 
+/* HTML読み込み */
 function loadHTML(id, url) {
   fetch(url)
     .then(res => res.text())
@@ -159,20 +164,23 @@ function loadHTML(id, url) {
 
 /* 本文 */
 const params = new URLSearchParams(location.search);
-const page = params.get('page') || 'index';
+const page = params.get("page") || "index";
 
-fetch('./' + page)
-  .then(res => res.text()tml,'text/html');
-    const c = d.querySelector('.content') || d.body;
-    document.getElementById('mobileContent').innerHTML = c.innerHTML;
+fetch("./" + page)
+  .then(res => res.text())
+  .then(html => {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    const content = doc.querySelector(".content") || doc.body;
+    document.getElementById("mobileContent").innerHTML = content.innerHTML;
   });
 
 /* sidebar */
-loadHTML('sidebar-inner','background/sidebar-right.html');
+loadHTML("sidebar-inner", "background/sidebar-right.html");
 
 /* footer */
-loadHTML('footer-placeholder','background/footer.html');
+loadHTML("footer-placeholder", "background/footer.html");
 </script>
 
 </body>
 </html>
+``
