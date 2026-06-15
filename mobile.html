@@ -41,17 +41,20 @@ header {
   z-index: 3000;
 }
 
-/* ✅ メニュー */
 .menu {
-  display: none;
   position: fixed;
-  top: 100px;
-  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px; /* ←横幅制限 */
   background: #f2c474 url('background/pageimages/pattern.webp');
-  padding: 60px 20px 20px; /* ←被り回避 */
+  
+  transform: translateX(-100%); /* ←最初は隠す */
+  transition: transform 0.3s ease;
+  
+  padding: 80px 20px;
   box-sizing: border-box;
-  z-index: 2000;
-  font-family: Arial, sans-serif;
+  z-index: 3000;
 }
 
 .menu a {
@@ -60,6 +63,25 @@ header {
   color: #612d00;
   text-decoration: none;
   font-weight: bold;
+}
+
+.menu.open {
+  transform: translateX(0); /* ←スライドイン */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  display: none;
+  z-index: 2000;
+}
+
+.overlay.show {
+  display: block;
 }
 
 /* 本文 */
@@ -198,14 +220,19 @@ details[open] .arrow {
 <script>
 function toggleMenu() {
   const menu = document.getElementById("menu");
+  const overlay = document.getElementById("overlay");
   const btn = document.querySelector(".hamburger");
 
-  if (menu.style.display === "block") {
-    menu.style.display = "none";
-    btn.style.color = "#d35400"; // 閉じた
+  const isOpen = menu.classList.contains("open");
+
+  if (isOpen) {
+    menu.classList.remove("open");
+    overlay.classList.remove("show");
+    btn.style.color = "#d35400";
   } else {
-    menu.style.display = "block";
-    btn.style.color = "#612d00"; // 開いた
+    menu.classList.add("open");
+    overlay.classList.add("show");
+    btn.style.color = "#612d00";
   }
 }
 
