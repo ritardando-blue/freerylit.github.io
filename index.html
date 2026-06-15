@@ -58,6 +58,16 @@
       loadHTML('sidebar-right-placeholder', 'background/sidebar-right.html');
       loadHTML('footer-placeholder', 'background/footer.html');
     });
+    
+const fadeTargets = document.querySelectorAll(
+  ".sidebar-left a, .sidebar-left .youtube-embed"
+);
+
+fadeTargets.forEach((el, index) => {
+  setTimeout(() => {
+    el.classList.add("show");
+  }, index * 100);
+});
   </script>
 </body>
 </html>
