@@ -87,19 +87,27 @@ header {
   box-sizing: border-box;
 }
 
-/* ✅ 横ベター＆ズレ防止 */
+/* ✅ 横ベター白ゾーン */
 .mobile-sidebar {
   width: 100%;
-  padding: 10px 0;
+  background: #fff;
+  padding: 20px 0;
   box-sizing: border-box;
 }
 
-/* ✅ 個別中央（ズレ防止） */
+/* ✅ 中央の芯 */
+.mobile-sidebar-inner {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* アイコン */
 .mobile-sidebar img {
   display: block;
   margin: 0 auto 10px auto;
 }
 
+/* テキスト中央 */
 .mobile-sidebar h3,
 .mobile-sidebar p,
 .mobile-sidebar h4,
@@ -107,23 +115,22 @@ summary {
   text-align: center;
 }
 
+/* リスト */
+.mobile-sidebar ul {
+  padding-left: 20px;
+}
+
 /* 折りたたみ */
 details {
   width: 100%;
 }
 
-/* タイトル */
 summary {
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;
   color: #d35400;
   margin-bottom: 10px;
-}
-
-/* ✅ リストは左寄せ（安定） */
-.mobile-sidebar ul {
-  padding-left: 20px;
 }
 
 /* フッター */
@@ -138,7 +145,6 @@ footer a {
   color: white;
   text-decoration: none;
 }
-
 </style>
 </head>
 
@@ -161,11 +167,13 @@ footer a {
 
 <main id="mobileContent"></main>
 
-<!-- ✅ 折りたたみ -->
+<!-- ✅ 白帯＋中央 -->
 <div class="mobile-sidebar">
   <details>
     <summary>プロフィール・更新履歴を見る</summary>
-    <div id="sidebar-inner"></div>
+    <div class="mobile-sidebar-inner">
+      <div id="sidebar-inner"></div>
+    </div>
   </details>
 </div>
 
@@ -185,12 +193,10 @@ function closeMenu() {
   document.querySelector('.close-btn').style.display = 'none';
 }
 
-/* HTML読み込み */
 function loadHTML(id, url) {
   fetch(url)
     .then(res => res.ok ? res.text() : Promise.reject(res.status))
-    .then(html => document.getElementById(id).innerHTML = html)
-    .catch(err => console.error('読み込み失敗:', url, err));
+    .then(html => document.getElementById(id).innerHTML = html);
 }
 
 /* 本文 */
@@ -206,7 +212,7 @@ fetch('./' + pageName)
     if(content) document.getElementById('mobileContent').innerHTML = content.innerHTML;
   });
 
-/* sidebar（PC流用） */
+/* sidebar */
 loadHTML('sidebar-inner', 'background/sidebar-right.html');
 
 /* footer */
