@@ -223,6 +223,9 @@ footer a {
 footer a:hover {
   color: #fff2e0;
 }
+footer p {
+  margin: 5px 0;
+}
 /* ダウンロードボタン */
 a.button {
   display: inline-block;
