@@ -144,6 +144,7 @@ details[open] .arrow {
 }
 
 .mobile-sidebar-inner {
+  display: none;
   opacity: 0;
   transform: translateY(-10px);
   transition: all 0.25s ease;
@@ -151,6 +152,7 @@ details[open] .arrow {
 
 /* 開いたとき */
 details[open] .mobile-sidebar-inner {
+  display: block;
   opacity: 1;
   transform: translateY(0);
 }
@@ -176,16 +178,13 @@ details[open] .mobile-sidebar-inner {
 <main id="mobileContent"></main>
 
 <div class="mobile-sidebar">
-  <details>
-    <summary class="arrow-toggle">
+<summary onclick="toggleProfile()">
   <span class="arrow">▶</span> プロフィール・更新履歴を見る
 </summary>
 
-    <div class="mobile-sidebar-inner">
-      <div id="sidebar-inner"></div>
-    </div>
-
-  </details>
+<div id="profileBox" class="mobile-sidebar-inner">
+  <div id="sidebar-inner"></div>
+</div>
 </div>
 
 <div id="footer-placeholder"></div>
@@ -228,6 +227,19 @@ loadHTML("sidebar-inner", "background/sidebar-right.html");
 
 /* footer */
 loadHTML("footer-placeholder", "background/footer.html");
+
+function toggleProfile() {
+  const box = document.getElementById("profileBox");
+  const arrow = document.querySelector(".arrow");
+
+  if (box.classList.contains("show")) {
+    box.classList.remove("show");
+    arrow.textContent = "▶";
+  } else {
+    box.classList.add("show");
+    arrow.textContent = "▼";
+  }
+}
 </script>
 
 </body>
