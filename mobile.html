@@ -48,10 +48,10 @@ header {
   height: 100%;
   width: 150px; /* ←横幅制限 */
   background: #f2c474 url('background/pageimages/pattern.webp');
-  
+
   transform: translateX(-100%); /* ←最初は隠す */
   transition: transform 0.3s ease;
-  
+
   padding: 150px 20px;
   box-sizing: border-box;
   z-index: 4000;
@@ -95,7 +95,6 @@ header {
 .mobile-sidebar {
   background: #fff;
   padding: 10px 0;
-  position: relative;
 }
 
 /* 折りたたみ */
@@ -167,25 +166,23 @@ details[open] .arrow {
 }
 
 .mobile-sidebar-inner {
-  position: absolute;
-  top: 100%;
-  left: 50％;
-  width: 100vw;           /* ←画面いっぱい */
-  background: #fff;
+  max-height: 0;
+  overflow: hidden;
+
   opacity: 0;
-  transform: translateX(-50%) translateY(-10px);
-  pointer-events: none;
-  z-index: 2000;
+  transform: translateY(-10px);
+
   transition:
+    max-height 0.4s ease,
     opacity 0.25s ease,
     transform 0.25s ease;
 }
 
 /* ✅ 開いたとき */
 .mobile-sidebar-inner.show {
+  max-height: 1200px; /* ←少し余裕もたせる */
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
-  pointer-events: auto;
+  transform: translateY(0);
 }
 </style>
 
@@ -270,9 +267,11 @@ function toggleProfile() {
 
   if (box.classList.contains("show")) {
     box.classList.remove("show");
+    arrow.textContent = "▶";
     arrow.style.transform = "rotate(0deg)";
   } else {
     box.classList.add("show");
+    arrow.textContent = "▼";
     arrow.style.transform = "rotate(90deg)";
   }
 }
