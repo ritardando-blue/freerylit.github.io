@@ -130,6 +130,17 @@ footer {
   text-align: center;
   padding: 20px;
 }
+  /* ▼ 矢印アニメーション */
+.arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  margin-right: 6px;
+}
+
+/* 開いたら回転して ↓ にする */
+details[open] .arrow {
+  transform: rotate(90deg);
+}
 </style>
 
 </head>
@@ -153,7 +164,9 @@ footer {
 
 <div class="mobile-sidebar">
   <details>
-    <summary>プロフィール・更新履歴を見る</summary>
+    <summary class="arrow-toggle">
+  <span class="arrow">→</span> プロフィール・更新履歴を見る
+</summary>
 
     <div class="mobile-sidebar-inner">
       <div id="sidebar-inner"></div>
