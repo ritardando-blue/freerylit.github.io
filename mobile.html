@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>りたるだんどな日々 - フリーBGM</title>
 <link rel="stylesheet" href="style.css">
-<link rel="icon" href="background/pageimages/fabikonn.png">
+<link rel="icon" href="background/pageimages/fabikonn.png" type="image/png">
 
 <style>
 body {
@@ -42,34 +42,48 @@ header {
   padding: 20px;
 }
 
-.menu a {
-  display: block;
-  margin: 10px 0;
-  color: #612d00;
-  text-decoration: none;
-  font-weight: bold;
-}
-
 /* 本文 */
 #mobileContent {
   margin-top: 120px;
   padding: 20px;
 }
 
-/* ✅ 閉じたときに余白消す */
-.mobile-sidebar details:not([open]) {
-  display: inline-block;
+/* ✅ 白背景ゾーン */
+.mobile-sidebar {
   width: 100%;
+  background: #fff;
   padding: 10px 0;
 }
 
-/* ✅ 中央制御ゾーン */
+/* ✅ 閉じたとき余白なし */
+.mobile-sidebar details:not([open]) {
+  padding: 0;
+  margin: 0;
+}
+
+/* ✅ 矢印完全削除 */
+summary {
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* ✅ summary中央 */
+summary {
+  text-align: center;
+  font-weight: bold;
+  color: #d35400;
+  padding: 10px 0;
+}
+
+/* ✅ 中央の芯 */
 .mobile-sidebar-inner {
   max-width: 320px;
   margin: 0 auto;
 }
 
-/* ✅ 強制リセット（ここが核心） */
+/* ✅ すべて中央に上書き */
 #sidebar-inner * {
   text-align: center !important;
   margin-left: auto !important;
@@ -85,16 +99,16 @@ header {
 /* ✅ リストだけ例外 */
 #sidebar-inner ul {
   text-align: left !important;
-  margin: 0 auto;
-  max-width: 280px;
+  max-width: 260px;
 }
 
-/* フッター */
+/* ✅ フッター安定 */
 footer {
   background: #d35400;
   color: white;
   text-align: center;
   padding: 20px;
+  margin: 0;
 }
 </style>
 </head>
@@ -119,7 +133,7 @@ footer {
 <!-- ✅ 折りたたみ -->
 <div class="mobile-sidebar">
   <details>
-    <summary style="text-align:center;color:#d35400;font-weight:bold;">▼ プロフィール・更新履歴を見る</summary>
+    <summary>プロフィール・更新履歴を見る</summary>
 
     <div class="mobile-sidebar-inner">
       <div id="sidebar-inner"></div>
@@ -148,9 +162,7 @@ const params = new URLSearchParams(location.search);
 const page = params.get('page') || 'index';
 
 fetch('./' + page)
-  .then(res => res.text())
-  .then(html => {
-    const d = new DOMParser().parseFromString(html,'text/html');
+  .then(res => res.text()tml,'text/html');
     const c = d.querySelector('.content') || d.body;
     document.getElementById('mobileContent').innerHTML = c.innerHTML;
   });
