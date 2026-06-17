@@ -43,6 +43,17 @@ header a {
   height: 100%;
   cursor: pointer;
 }
+.header-link {
+  display: block;
+  cursor: pointer;
+}
+
+.header-link header {
+  width: 100%;
+  height: 130px;
+  background: url('background/pageimages/header.webp') no-repeat center center;
+  background-size: cover;
+}
 /* コンテナ */
 .container {
   display: flex;
