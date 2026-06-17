@@ -14,12 +14,9 @@
   </script>
 </head>
 <body>
-  <!-- ヘッダーを読み込む -->
   <div id="header-placeholder"></div>
   <div class="container">
-    <!-- 左カラムを読み込む -->
     <div id="sidebar-left-placeholder"></div>
-    <!-- 中央カラム -->
     <main class="content">
     <h2>利用規約</h2>
     <p>本サイトで公開されているBGMは、商用・非商用問わず自由に利用可能です。</p>
@@ -31,15 +28,11 @@
     <p>上記以外はご自由にご利用ください。</p>
     <p>その他、良識の範囲内で広く温かく使っていただけると大変ありがたいです！</p>
   </main>
-    <!-- 右カラムを読み込む -->
     <div id="sidebar-right-placeholder"></div>
   </div>
-  <!-- フッターを読み込む -->
-  <div id="footer-placeholder"></div>
-  <!-- 共通パーツ読み込み用JavaScript -->
+    <div id="footer-placeholder"></div>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // HTMLファイルを読み込む関数
       function loadHTML(elementId, filePath) {
         fetch(filePath)
           .then(response => response.text())
@@ -48,7 +41,6 @@
           })
           .catch(error => console.error(`Error loading ${filePath}:`, error));
       }
-      // 各パーツを読み込む
       loadHTML('header-placeholder', 'includes/header.html');
       loadHTML('sidebar-left-placeholder', 'includes/sidebar-left.html');
       loadHTML('sidebar-right-placeholder', 'includes/sidebar-right.html');
