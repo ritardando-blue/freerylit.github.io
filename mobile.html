@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>りたるだんどな日々 - フリーBGM</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="/assets/images/favicon.png" type="image/png">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff8f0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ←これ追加（核心） */
+
+}
+
+/* ヘッダー */
+header {
+  height: 100px;
+  background: url('assets/images/header.webp') center/cover no-repeat;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5000;
+}
+
+/* ✅ ハンバーガー */
+.hamburger {
+  position: fixed;
+  top: 110px;
+  left: 12px;
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: #d35400;
+  z-index: 6000;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 150px; /* ←横幅制限 */
+  background: #f2c474 url('assets/images/pattern.webp');
+
+  transform: translateX(-100%); /* ←最初は隠す */
+  transition: transform 0.3s ease;
+
+  padding: 150px 20px;
+  box-sizing: border-box;
+  z-index: 4000;
+}
+
+.menu a {
+  display: block;
+  margin: 12px 0;
+  color: #612d00;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu.open {
+  transform: translateX(0); /* ←スライドイン */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  display: none;
+  z-index: 2000;
+}
+
+.overlay.show {
+  display: block;
+}
+
+/* 本文 */
+#mobileContent {
+  margin-top: 120px;
+  padding: 20px;
+  flex: 1;
+}
+
+/* ✅ 白ゾーン */
+.mobile-sidebar {
+  background: #fff;
+  padding: 10px 0;
+}
+
+/* 折りたたみ */
+summary {
+  list-style: none;
+  text-align: center;
+  font-weight: bold;
+  color: #d35400;
+  padding: 10px 0;
+  cursor: pointer;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* ✅ 中央軸 */
+.mobile-sidebar-inner {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* ✅ PC CSS完全上書き */
+#sidebar-inner,
+#sidebar-inner * {
+  font-family: Arial, sans-serif !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* アイコン */
+#sidebar-inner img {
+  display: block;
+  margin: 0 auto 12px;
+}
+
+/* リストだけ戻す */
+#sidebar-inner ul {
+  text-align: left !important;
+  max-width: 260px;
+}
+
+/* ✅ footer余白完全排除 */
+html, body {
+  height: 100%;
+}
+
+#footer-placeholder {
+  margin: 0;
+  margin-top: auto;
+}
+
+footer {
+  background: #d35400;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+  /* ▼ 矢印アニメーション */
+.arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  margin-right: 6px;
+}
+
+/* 開いたら回転して ↓ にする */
+details[open] .arrow {
+  transform: rotate(90deg);
+}
+
+.mobile-sidebar-inner {
+  max-height: 0;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(-10px);
+
+  transition:
+    max-height 0.4s ease,
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* ✅ 開いたとき */
+.mobile-sidebar-inner.show {
+  max-height: 1200px; /* ←少し余裕もたせる */
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+</head>
+
+<body>
+
+<header></header>
+
+<button class="hamburger" onclick="toggleMenu()">☰</button>
+
+<div class="menu" id="menu">
+  <a href="mobile.html?page=index">HOME</a>
+  <a href="mobile.html?page=bgm%2Findex.html">フリーBGM</a>
+  <a href="mobile.html?page=blog%2Findex.html">Blog</a>
+  <a href="mobile.html?page=profile.html">Profile</a>
+  <a href="mobile.html?page=contact.html">Contact</a>
+  <a href="mobile.html?page=terms.html">利用規約</a>
+</div>
+<div id="overlay" class="overlay" onclick="toggleMenu()"></div>
+<main id="mobileContent"></main>
+
+<div class="mobile-sidebar">
+<summary onclick="toggleProfile()">
+  <span class="arrow">▶</span> プロフィール・更新履歴を見る
+</summary>
+
+<div id="profileBox" class="mobile-sidebar-inner">
+  <div id="sidebar-inner"></div>
+</div>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  const overlay = document.getElementById("overlay");
+  const btn = document.querySelector(".hamburger");
+
+  const isOpen = menu.classList.contains("open");
+
+  if (isOpen) {
+    menu.classList.remove("open");
+    overlay.classList.remove("show");
+    btn.style.color = "#d35400";
+  } else {
+    menu.classList.add("open");
+    overlay.classList.add("show");
+    btn.style.color = "#612d00";
+  }
+}
+
+/* HTML読み込み */
+function loadHTML(id, url) {
+  fetch(url)
+    .then(res => res.text())
+    .then(html => document.getElementById(id).innerHTML = html);
+}
+
+/* 本文 */
+const params = new URLSearchParams(location.search);
+const page = params.get("page") || "index";
+
+fetch("./" + page)
+  .then(res => res.text())
+  .then(html => {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    const content = doc.querySelector(".content") || doc.body;
+    document.getElementById("mobileContent").innerHTML = content.innerHTML;
+  });
+
+/* sidebar */
+loadHTML("sidebar-inner", "includes/sidebar-right.html");
+
+/* footer */
+loadHTML("footer-placeholder", "includes/footer.html");
+
+function toggleProfile() {
+  const box = document.getElementById("profileBox");
+  const arrow = document.querySelector(".arrow");
+
+  if (box.classList.contains("show")) {
+    box.classList.remove("show");
+    arrow.style.transform = "rotate(0deg)";
+  } else {
+    box.classList.add("show");
+    arrow.style.transform = "rotate(90deg)";
+  }
+}
+document.addEventListener('click', function (event) {
+  const link = event.target.closest('a');
+  if (!link) return;
+
+  const href = link.href;
+  if (!href) return;
+
+if (href.includes('/blog/') && href.endsWith('.html')) {
+    event.preventDefault();
+
+    const clean = href.replace('https://kikacool.com/', '');
+    const encoded = encodeURIComponent(clean);
+
+    window.location.href = `mobile.html?page=${encoded}`;
+  }
+});
+</script>
+
+</body>
+</html>

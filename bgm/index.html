@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>りたるだんどな日々 - フリーBGM</title>
+  <meta name="description" content="音楽大好きで色々やってます。フリーBGM作ってます。ブログもやってます。">
+  <meta name="keywords" content="BGM, フリーBGM, 作曲, 音楽, ブログ, パーカッション, 無料, 音楽無料, りたるだんどな日々">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../assets/images/fabikonn.png" type="image/png">
+  <script>
+    if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+      window.location.href = "../mobile.html";
+    }
+  </script>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <div class="container">
+    <div id="sidebar-left-placeholder"></div>
+
+    <main class="content">
+      <h2>フリーBGM</h2>
+      <p>このページでは、商用利用可能のBGMを配布しています。</p>
+      <p>利用規約をご確認の上、広くご利用ください。</p>
+      <br>
+
+      <div class="song-list">
+
+        <div class="song blog-post">
+          <h3>エンディング3.mp3</h3>
+          <audio controls>
+            <source src="/bgm/mp3/エンディング3 りたるだんどな日々.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <br>
+          <a class="button" href="/bgm/mp3/エンディング3 りたるだんどな日々.mp3" download>Download</a>
+        </div>
+        
+        <div class="song blog-post">
+          <h3>ジングル１.mp3</h3>
+          <audio controls>
+            <source src="/bgm/mp3/ジングル１ りたるだんどな日々.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <br>
+          <a class="button" href="/bgm/mp3/ジングル１ りたるだんどな日々.mp3" download>Download</a>
+        </div>
+
+        <div class="song blog-post">
+          <h3>ひよこの３歩.mp3</h3>
+          <audio controls>
+            <source src="/bgm/mp3/ひよこの３歩 りたるだんどな日々.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <br>
+          <a class="button" href="/bgm/mp3/ひよこの３歩 りたるだんどな日々.mp3" download>Download</a>
+        </div>
+
+        <div class="song blog-post">
+          <h3>エンディング2.mp3</h3>
+          <audio controls>
+            <source src="/bgm/mp3/エンディング2 りたるだんどな日々.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <br>
+          <a class="button" href="/bgm/mp3/エンディング2 りたるだんどな日々.mp3" download>Download</a>
+        </div>
+
+        <div class="song blog-post">
+          <h3>エンディング1.mp3</h3>
+          <audio controls>
+            <source src="/bgm/mp3/エンディング1 りたるだんどな日々.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <br>
+          <a class="button" href="/bgm/mp3/エンディング1 りたるだんどな日々.mp3" download>Download</a>
+        </div>
+
+      </div> </main>
+
+    <div id="sidebar-right-placeholder"></div>
+  </div> <div id="footer-placeholder"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      function loadHTML(elementId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            const el = document.getElementById(elementId);
+            if(el) el.innerHTML = data;
+          })
+          .catch(error => console.error(`Error loading ${filePath}:`, error));
+      }
+
+      loadHTML('header-placeholder', '../includes/header.html');
+      loadHTML('sidebar-left-placeholder', '../includes/sidebar-left.html');
+      loadHTML('sidebar-right-placeholder', '../includes/sidebar-right.html');
+      loadHTML('footer-placeholder', '../includes/footer.html');
+    });
+  </script>
+</body>
+</html>
