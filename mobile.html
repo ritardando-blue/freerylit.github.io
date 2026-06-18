@@ -290,6 +290,33 @@ if (href.includes('/blog/') && href.endsWith('.html')) {
     window.location.href = `mobile.html?page=${encoded}`;
   }
 });
+  if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+
+  switch (location.pathname) {
+
+    case "/":
+    case "/index.html":
+      window.location.href = "/mobile.html?page=index";
+      break;
+
+    case "/bgm/":
+      window.location.href = "/mobile.html?page=bgm";
+      break;
+
+    case "/blog/":
+      window.location.href = "/mobile.html?page=blog";
+      break;
+
+    case "/profile.html":
+      window.location.href = "/mobile.html?page=profile";
+      break;
+
+    case "/contact.html":
+      window.location.href = "/mobile.html?page=contact";
+      break;
+  }
+
+}
 </script>
 
 </body>
