@@ -202,8 +202,8 @@ h2 {
 }
 /*見出し超*/
 h55 {
-  color:RGB(0,0,128)
-  border-bottom: 4px solid RGB(0,0,128)
+  color:RGB(0,0,128);
+  border-bottom: 4px solid RGB(0,0,128);
   display: inline-block;
   padding-bottom: 10px;
 }
