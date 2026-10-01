@@ -333,13 +333,6 @@ ul.blog-list li a:hover {
       font-style: italic;
       color: #555;
     }
-    /* 見出し調整 */
-    .blog-post h3 {
-      color: #994618;
-  /* border-bottom: 1px solid #e65100; */
-      padding-bottom: 5px;
-      margin-top: 25px;
-    }
     /* 箇条書きスタイル */
     .blog-post ul {
       margin-left: 20px;
